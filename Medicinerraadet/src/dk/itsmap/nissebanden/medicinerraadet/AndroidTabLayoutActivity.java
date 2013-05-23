@@ -37,6 +37,12 @@ public class AndroidTabLayoutActivity extends TabActivity {
 	                      res.getDrawable(R.drawable.ic_tab_other))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
+	    
+	    intent = new Intent().setClass(this, CalendarTabActivity.class);
+	    spec = tabHost.newTabSpec("Calendar").setIndicator("Calendar",
+	                      res.getDrawable(R.drawable.ic_tab_calendar))
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
 
 	    tabHost.setCurrentTab(1);
 	}

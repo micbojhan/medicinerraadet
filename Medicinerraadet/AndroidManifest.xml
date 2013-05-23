@@ -40,6 +40,10 @@
             android:name="dk.itsmap.nissebanden.medicinerraadet.ContactTabActivity"
             android:label="@string/title_activity_contact_tab" >
         </activity>
+                <activity
+            android:name="dk.itsmap.nissebanden.medicinerraadet.CalendarTabActivity"
+            android:label="@string/title_activity_calendar_tab" >
+        </activity>
     </application>
 
 </manifest>
