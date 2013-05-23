@@ -32,6 +32,14 @@
             android:name="dk.itsmap.nissebanden.medicinerraadet.NewsTabActivity"
             android:label="@string/title_activity_news_tab" >
         </activity>
+        <activity
+            android:name="dk.itsmap.nissebanden.medicinerraadet.OtherTabActivity"
+            android:label="@string/title_activity_other_tab" >
+        </activity>
+        <activity
+            android:name="dk.itsmap.nissebanden.medicinerraadet.ContactTabActivity"
+            android:label="@string/title_activity_contact_tab" >
+        </activity>
     </application>
 
 </manifest>

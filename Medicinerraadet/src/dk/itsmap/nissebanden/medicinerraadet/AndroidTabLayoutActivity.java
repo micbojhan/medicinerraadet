@@ -25,18 +25,18 @@ public class AndroidTabLayoutActivity extends TabActivity {
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 
-//	    // Do the same for the other tabs
-//	    intent = new Intent().setClass(this, ContactTabActivity.class);
-//	    spec = tabHost.newTabSpec("contact").setIndicator("Kontakt",
-//	                      res.getDrawable(R.drawable.ic_contact))
-//	                  .setContent(intent);
-//	    tabHost.addTab(spec);
-//
-//	    intent = new Intent().setClass(this, OtherTabActivity.class);
-//	    spec = tabHost.newTabSpec("other").setIndicator("Andet",
-//	                      res.getDrawable(R.drawable.ic_other))
-//	                  .setContent(intent);
-//	    tabHost.addTab(spec);
+	    // Do the same for the other tabs
+	    intent = new Intent().setClass(this, ContactTabActivity.class);
+	    spec = tabHost.newTabSpec("contact").setIndicator("Kontakt",
+	                      res.getDrawable(R.drawable.ic_tab_contact))
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
+
+	    intent = new Intent().setClass(this, OtherTabActivity.class);
+	    spec = tabHost.newTabSpec("other").setIndicator("Andet",
+	                      res.getDrawable(R.drawable.ic_tab_other))
+	                  .setContent(intent);
+	    tabHost.addTab(spec);
 
 	    tabHost.setCurrentTab(1);
 	}

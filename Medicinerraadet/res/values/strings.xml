@@ -6,5 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_android_tab_layout">AndroidTabLayoutActivity</string>
     <string name="title_activity_news_tab">NewsTabActivity</string>
+    <string name="title_activity_other_tab">OtherTabActivity</string>
+    <string name="title_activity_contact_tab">ContactTabActivity</string>
 
 </resources>
