@@ -15,5 +15,20 @@
         <item>Undervisning/eksamen</item>
         <item>Andet</item>
     </string-array>
+    
+        <string-array name="semester_array">
+        <item>1. Semester</item>
+        <item>2. Semester</item>
+        <item>3. Semester</item>
+        <item>4. Semester</item>
+        <item>5. Semester</item>
+        <item>6. Semester</item>
+        <item>7. Semester</item>
+        <item>8. Semester</item>
+        <item>9. Semester</item>
+        <item>10. Semester</item>
+        <item>11. Semester</item>
+        <item>Forskning</item>
+    </string-array>
 
 </resources>

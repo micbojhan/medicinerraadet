@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ContactTabActivity extends Activity {
@@ -14,20 +13,30 @@ public class ContactTabActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		TextView textview = new TextView(this);
-		textview.setText("This is the contacts tab");
-		setContentView(textview);
-
-		Spinner spinner = (Spinner) findViewById(R.id.subject_spinner);
+		//Use the current view
+		setContentView(R.layout.activity_contact_tab);
+		
+		Spinner subjectSpinner = (Spinner) findViewById(R.id.subject_spinner);
 		// Create an ArrayAdapter using the string array and a default spinner
 		// layout
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+		ArrayAdapter<CharSequence> subjectAdapter = ArrayAdapter.createFromResource(
 				this, R.array.subject_array,
 				android.R.layout.simple_spinner_item);
 		// Specify the layout to use when the list of choices appears
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
-		spinner.setAdapter(adapter);
+		subjectSpinner.setAdapter(subjectAdapter);
+		
+		Spinner semesterSpinner = (Spinner) findViewById(R.id.semester_spinner);
+		// Create an ArrayAdapter using the string array and a default spinner
+		// layout
+		ArrayAdapter<CharSequence> semesterAdapter = ArrayAdapter.createFromResource(
+				this, R.array.semester_array,
+				android.R.layout.simple_spinner_item);
+		// Specify the layout to use when the list of choices appears
+		semesterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		semesterSpinner.setAdapter(semesterAdapter);
 	}
 
 	@Override
