@@ -33,7 +33,7 @@ public class AndroidTabLayoutActivity extends TabActivity {
 	    tabHost.addTab(spec);
 
 	    intent = new Intent().setClass(this, OtherTabActivity.class);
-	    spec = tabHost.newTabSpec("other").setIndicator("Andet",
+	    spec = tabHost.newTabSpec("other").setIndicator("Om MR",
 	                      res.getDrawable(R.drawable.ic_tab_other))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);

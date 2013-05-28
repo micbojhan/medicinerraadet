@@ -12,7 +12,7 @@ public class OtherTabActivity extends Activity {
 
 		TextView textview = new TextView(this);
 		textview.setText("This is the Other tab");
-		setContentView(textview);
+		setContentView(R.layout.activity_other_tab);
 	}
 
 	@Override

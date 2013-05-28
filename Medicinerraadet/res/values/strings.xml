@@ -6,7 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_android_tab_layout">AndroidTabLayoutActivity</string>
     <string name="title_activity_news_tab">NewsTabActivity</string>
-    <string name="title_activity_other_tab">OtherTabActivity</string>
     <string name="title_activity_contact_tab">ContactTabActivity</string>
     <string name="title_activity_calendar_tab">CalendarTabActivity</string>
 
@@ -30,5 +29,22 @@
         <item>11. Semester</item>
         <item>Forskning</item>
     </string-array>
-
+        
+    <string name="who_is_in_mr_header">Hvem er i Medicinerrådet ?</string>
+    <string name="who_is_in_mr">MR består af op til 30 medicinstuderende, der holder møde ca. hver tredje uge i semestermånederne. Der afholdes valg hvert år i september/oktober måned. Medicinerrødderne kommer fra alle årgange på studiet og tæller såvel de "grønne", som lige er startet og gerne vil vide mere, som "garvede rotter", der har været med i mange år. </string>
+	<string name="how_to_use_header">Hvordan bruger man Medicinerrådet?</string>
+	<string name="how_to_use">Det er ofte de samme spørgsmål og problemer, der opstår blandt de studerende semester efter semester, f.eks. omkring undervisningens kvalitet. MR er det forum, hvor kritikken tages op og viderebringes i undervisningsudvalg, Studienævn mv. 
+Tit har problemerne været oppe før, og her kan de fælles erfaringer udmøntes i konkrete resultater, f.eks. ændret undervisning eller bedre forhold på andre områder. MR kan generelt bruges til råd og vejledning.
+Får du en god idé til et kulturelt arrangement, et foredrag eller lignende, har MR den nødvendige viden og økonomi.
+MR har siden det blev oprettet i 1933 arbejdet for at bevare og forbedre de muligheder, vi har som studerende. Det har bl.a. betydet, at vi i dag som de eneste i Danmark har vores eget hus, Medicinerhuset. MR arbejder fortsat for at styrke vore fælles forhold; dette arbejde får mening, når flest mulige medicinstuderende bakker op om deres faglige organisation.
+	</string>
+	<string name="link"><a href= "http://www.medicinerraadet.dk/medias/media116.pdf">Download pdf med Medicinerrådets opbygning</a></string>
+	<string name="aabningstider_header">Åbningstider</string>
+	<string name="aabningstider">Tirsdage: 9-13 \nTorsdage: 8-11</string>
+	<string name="velkommen">MR har kontor i Medicinerhuset og her kan du få hjælp til eksempelvis nøgler til bogskabe, opskrivning til læsepladser, kontakt til andre organisationer og meget andet. Vi holder åbnet:</string>
+	<string name="adresse_header">Adresse</string>
+	<string name="adresse"> Medicinerrådet \nÅrhus Universitet \nOle Worms Allé \nBygning 1161 (Medicinerhuset) \n8000 Århus C
+</string>
+	<string name="kontakt">Kontakt os via kontaktfanen, eller ring på 87167001</string>
+    	
 </resources>
