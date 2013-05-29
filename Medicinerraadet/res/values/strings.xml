@@ -31,20 +31,17 @@
     </string-array>
         
     <string name="who_is_in_mr_header">Hvem er i Medicinerrådet ?</string>
-    <string name="who_is_in_mr">MR består af op til 30 medicinstuderende, der holder møde ca. hver tredje uge i semestermånederne. Der afholdes valg hvert år i september/oktober måned. Medicinerrødderne kommer fra alle årgange på studiet og tæller såvel de "grønne", som lige er startet og gerne vil vide mere, som "garvede rotter", der har været med i mange år. </string>
-	<string name="how_to_use_header">Hvordan bruger man Medicinerrådet?</string>
-	<string name="how_to_use">Det er ofte de samme spørgsmål og problemer, der opstår blandt de studerende semester efter semester, f.eks. omkring undervisningens kvalitet. MR er det forum, hvor kritikken tages op og viderebringes i undervisningsudvalg, Studienævn mv. 
-Tit har problemerne været oppe før, og her kan de fælles erfaringer udmøntes i konkrete resultater, f.eks. ændret undervisning eller bedre forhold på andre områder. MR kan generelt bruges til råd og vejledning.
-Får du en god idé til et kulturelt arrangement, et foredrag eller lignende, har MR den nødvendige viden og økonomi.
-MR har siden det blev oprettet i 1933 arbejdet for at bevare og forbedre de muligheder, vi har som studerende. Det har bl.a. betydet, at vi i dag som de eneste i Danmark har vores eget hus, Medicinerhuset. MR arbejder fortsat for at styrke vore fælles forhold; dette arbejde får mening, når flest mulige medicinstuderende bakker op om deres faglige organisation.
+    <string name="who_is_in_mr">MR består af op til 30 medicinstuderende, som har lyst til at engagere sig i diskussion om og forbedring af studiet. MR holder 4 - 5 møder pr. semester, hvor aktuelle emner af studierelateret, social og praktisk karakter bliver taget op. MR-møderne er det forum, hvor kritik af undervisning, klinikophold og alt muligt andet i løbet af et semester bliver diskuteret. Så tager vi det videre i systemet til dem, der bestemmer.</string>
+	<string name="medicinerraadet_header">Medicinerrådet</string>
+	<string name="medicinerraadet">Medicinerrådet, i daglig tale MR, er de medicinstuderendes fagråd, som arbejder på at forbedre de medicinstuderendes forhold generelt.
+MR repræsenterer de medicinstuderende i alle universitetets styrende organer så som de nye Institut Fora og Studienævnet. MR er også medlem af Studenterrådet (sammenslutningen af alle fagråd på universitetet). Vi sidder også til bords med dekanen og vores meninger bliver hørt, så vores tilstedeværelse sikrer de studerendes indflydelse på studiet.
 	</string>
 	<string name="link"><a href= "http://www.medicinerraadet.dk/medias/media116.pdf">Download pdf med Medicinerrådets opbygning</a></string>
-	<string name="aabningstider_header">Åbningstider</string>
+	<string name="aabningstider_header">MR kontoret</string>
 	<string name="aabningstider">Tirsdage: 9-13 \nTorsdage: 8-11</string>
-	<string name="velkommen">MR har kontor i Medicinerhuset og her kan du få hjælp til eksempelvis nøgler til bogskabe, opskrivning til læsepladser, kontakt til andre organisationer og meget andet. Vi holder åbnet:</string>
+	<string name="aabningstider_into">MR har desuden et kontor med to ugentlige åbningsdage, hvor medicinstuderende kan blive hjulpet med opgaver af praktisk karakter: nøglekort til Medicinerhuset, bogskabe, læsepladser og meget andet. Vi holder åbnet:</string>
 	<string name="adresse_header">Adresse</string>
-	<string name="adresse"> Medicinerrådet \nÅrhus Universitet \nOle Worms Allé \nBygning 1161 (Medicinerhuset) \n8000 Århus C
-</string>
+	<string name="adresse"> Medicinerrådet \nÅrhus Universitet \nOle Worms Allé \nBygning 1161 (Medicinerhuset) \n8000 Århus C</string>
 	<string name="kontakt">Kontakt os via kontaktfanen, eller ring på 87167001</string>
-    	
+    <string name="velkommen">Har du lyst til at være med? Så kom til et møde, snak med nogle af de mange udvalg, og sig din mening om tingene. \nVelkommen!</string>
 </resources>

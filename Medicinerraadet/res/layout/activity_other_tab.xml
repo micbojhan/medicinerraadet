@@ -20,10 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@color/air_force_blue"
-            android:text="@string/who_is_in_mr_header"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+            style="@style/header_style"
+            android:text="@string/medicinerraadet_header" />
 
         <TextView
             android:id="@+id/textView2"
@@ -31,6 +29,24 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView1"
             android:layout_below="@+id/textView1"
+            android:text="@string/medicinerraadet" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="20dp"
+            android:text="@string/who_is_in_mr_header"
+            style="@style/header_style"/>
+        
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_below="@+id/textView3"
             android:text="@string/who_is_in_mr" />
 
         <!-- <TextView -->
@@ -43,14 +59,6 @@
         <!-- android:autoLink="all" -->
         <!-- android:linksClickable="true" /> -->
         
-        <TextView 
-            android:id="@+id/textView6"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView5"
-            android:layout_below="@+id/textView5"
-            android:text="@string/velkommen"/>
-
         <TextView
             android:id="@+id/textView5"
             android:layout_width="fill_parent"
@@ -58,10 +66,16 @@
             android:layout_alignLeft="@+id/textView4"
             android:layout_below="@+id/textView4"
             android:layout_marginTop="16dp"
-            android:background="@color/air_force_blue"
             android:text="@string/aabningstider_header"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+            style="@style/header_style"/>
+        
+        <TextView 
+            android:id="@+id/textView6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_below="@+id/textView5"
+            android:text="@string/aabningstider_into"/>
 
         <TextView
             android:id="@+id/textView7"
@@ -90,36 +104,23 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_below="@+id/textView3"
-            android:text="@string/how_to_use" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView4"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="20dp"
-            android:background="@color/air_force_blue"
-            android:text="@string/how_to_use_header"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textView11"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/textView7"
             android:layout_below="@+id/textView7"
-            android:layout_marginTop="14dp"
-            android:background="@color/air_force_blue"
-            android:text="@string/adresse_header"
-            android:textColor="@color/white"
-            android:textSize="24sp" />
+            android:layout_marginTop="16dp"
+            android:text="@string/velkommen" />
+
+        <TextView
+            android:id="@+id/textView8"
+            style="@style/header_style"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView11"
+            android:layout_below="@+id/textView11"
+            android:layout_marginTop="18dp"
+            android:text="@string/adresse_header" />
 
     </RelativeLayout>
 
