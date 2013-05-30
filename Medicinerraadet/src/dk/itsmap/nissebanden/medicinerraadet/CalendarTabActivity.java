@@ -134,8 +134,6 @@ public class CalendarTabActivity extends Activity {
 			"}"+
 
 			".header {"+
-			   "font-weight: bold;"+
-			   "color: #FFFFFF;"+
 			   "background-color: #9898B8;"+
 			   "margin-bottom: 0.5em;"+
 			   "border-bottom: 0.15em solid #2E3875;"+
@@ -144,6 +142,12 @@ public class CalendarTabActivity extends Activity {
 			".logo {"+
 			    "height: 2em;"+
 			    "float: left;"+
+			"}"+
+			    
+			".date {"+
+				"font-weight: bold;"+
+				"color: #FFFFFF;"+
+				"text-align: left;"+
 			"}"+
 
 			"table {"+
@@ -179,24 +183,7 @@ public class CalendarTabActivity extends Activity {
 			    "border-style: solid;"+
 			"}"+
 
-			".footer {"+
-			    "width: 100%;"+
-			    "margin-bottom: 3em;"+
-			    "margin-top: 0.5em;"+
-			"}"+
-
-			".link {"+
-			    "text-decoration: none;"+
-			    "color: #FFFFFF;"+
-			    "padding: 0.2em 0.2em 0.2em 0.6em;"+
-			    "background-color: #9898B8;"+
-			    "float: right;"+
-			    "clear: left;"+
-			"}"+
-
-			    ".link:visited {"+
-			        "color: #FFFFFF;"+
-			    "}"+
+			
 
 				"</style>";
 					
@@ -221,7 +208,6 @@ public class CalendarTabActivity extends Activity {
 							"<table>"+
 	            				"<tr>"+
 	                				"<td>"+
-	                					 
 	                    				"<img class=\"logo\" src=\"logomedicinerraadet.jpg\" />"+
 	                    			"</td>"+
 	                    			"<td>"+
@@ -239,17 +225,12 @@ public class CalendarTabActivity extends Activity {
 						{
 							temp+=gd.getStartTime() + " <br>";
 						}
-	                    	
+						temp+="</div>";	
+						
 	                    
-	                    String temp2 = "</div>"+
-	                    "<div class=\"footer\">"+
-	                    	"<a class=\"link\" href=\"set link\">Læs mere...</a>"+
-	                    "</div>";
-				html_part+=temp+temp2;
+				html_part+=temp;
 			}
 
-			
-			
 		     String html2 = "</body>"+
 			            "</html>";
 				//Log.e("HEHEH", css+html1+html_part+html2);

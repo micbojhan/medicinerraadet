@@ -158,8 +158,6 @@ public class NewsTabActivity extends Activity {
 		"}"+
 
 		".header {"+
-		   "font-weight: bold;"+
-		   "color: #FFFFFF;"+
 		   "background-color: #9898B8;"+
 		   "margin-bottom: 0.5em;"+
 		   "border-bottom: 0.15em solid #2E3875;"+
@@ -168,6 +166,11 @@ public class NewsTabActivity extends Activity {
 		".logo {"+
 		    "height: 2em;"+
 		    "float: left;"+
+		"}"+
+		    
+		".date {"+
+			"font-weight: bold;"+
+			"color: #FFFFFF;"+
 		"}"+
 
 		"table {"+
@@ -199,8 +202,8 @@ public class NewsTabActivity extends Activity {
 		".img {"+
 		    "float: right;"+
 		    "margin: 0.2em;"+
-		    "max-width: 7.5em;"+
-		    "border-style: solid;"+
+		    "max-width: 9em;"+
+		    "border-style: none;"+
 		"}"+
 
 		".footer {"+
@@ -243,7 +246,9 @@ public class NewsTabActivity extends Activity {
 			}
 			
 			//String newstring2 = "";
-			String newstring = new SimpleDateFormat("EEEE, d. MMMM yyyy (HH:mm)").format(date);
+			String newstring = "Nyt fra Medicinerrådet";
+			String newdatestring = new SimpleDateFormat("EEEE, d. MMMM yyyy (HH:mm)").format(date);
+			
 			//newstring += new SimpleDateFormat("y d D - HH:mm:ss (kk)").format(timeSpan);
 			/* 
 			if(timeSpan.compareTo(new Date(0, 0, 0,1,0))<0)
@@ -271,10 +276,11 @@ public class NewsTabActivity extends Activity {
 					+ "<div class=\"header\"><table><tr><td><img class=\"logo\" src=\"logomedicinerraadet.jpg\" /></td><td><div class=\"date\">"
 					+ newstring
 					+ "</div></td></tr></table></div><div class=\"content\">"
+					+ "<b>"+newdatestring+"</b><br/>"
 					+ var.getContent()
 					+ "</div><div class=\"footer\"><a class=\"link\" href=\""
 					+ var.getAlternate()
-					+ "\">Læs mere...</a></div></div>";
+					+ "\">Læs mere > </a></div></div>";
 			// string.add(var.getContent());
 		}
 		stringBuilder = stringBuilder + "</body></html>";
