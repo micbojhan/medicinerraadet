@@ -228,11 +228,12 @@ public class CalendarTabActivity extends Activity {
 				
 				for (GD_Where gd : entry.getGd_where()) {
 					if (!gd.getValueString().isEmpty())
-						temp += gd.getValueString() + " <br><br>";
+						temp += "Hvor: "+gd.getValueString();
 				}
+				if(!entry.getContent().get$t().isEmpty())
+					temp += "<br>Beskrivelse: "+entry.getContent().get$t();
 				
-				
-				temp += "</div>";
+				temp += "<br><br></div>";
 
 				html_part += temp;
 			}
