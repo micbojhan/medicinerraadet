@@ -2,17 +2,35 @@ package dk.itsmap.nissebanden.medicinerraadet;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.Menu;
-import android.widget.TextView;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class OtherTabActivity extends Activity {
+	Button button;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		TextView textview = new TextView(this);
-		textview.setText("This is the Other tab");
+		
 		setContentView(R.layout.activity_other_tab);
+	
+		button = (Button) findViewById(R.id.se_udvalg);
+		button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				setContentView(R.layout.activity_other_tab_extra);
+				
+			}
+		});
+		
+			
 	}
 
 	@Override
