@@ -157,22 +157,17 @@ public class NewsTabActivity extends Activity {
 		    "font-size: 100%;"+
 		"}"+
 
-		"#header {"+
+		".header {"+
 		   "font-weight: bold;"+
 		   "color: #FFFFFF;"+
-		   "background-color: #303777;"+
+		   "background-color: #9898B8;"+
 		   "margin-bottom: 0.5em;"+
-		   "border-style: groove;"+
-		   "border-width: 0.2em;"+
-		   "border-color: #6F74A3;"+
-		   "border-radius: 0.7em;"+
-		   "clear:right;"+
+		   "border-bottom: 0.15em solid #2E3875;"+
 		"}"+
 
-		"#logo {"+
-		    "height: 3em;"+
+		".logo {"+
+		    "height: 2em;"+
 		    "float: left;"+
-		    "border-radius: 0.6em 0 0 0.6em;"+
 		"}"+
 
 		"table {"+
@@ -186,12 +181,20 @@ public class NewsTabActivity extends Activity {
 		        "padding: 0;"+
 		    "}"+
 
-		"#content {"+
+		".content {"+
 		    "text-overflow: ellipsis;"+
 		    "line-height: 1.2em;"+
 		    "max-height: 9.6em;"+
 		    "overflow: hidden;"+
 		"}"+
+		    
+		".content a:link {"+
+	        "color: #2E3875;"+
+	    "}"+
+	        
+		".content a:visited {"+
+	        "color: #2E3875;"+
+	    "}"+
 
 		".img {"+
 		    "float: right;"+
@@ -200,24 +203,22 @@ public class NewsTabActivity extends Activity {
 		    "border-style: solid;"+
 		"}"+
 
-		"#footer {"+
+		".footer {"+
 		    "width: 100%;"+
+		    "margin-bottom: 3em;"+
+		    "margin-top: 0.5em;"+
 		"}"+
 
-		"#link {"+
+		".link {"+
 		    "text-decoration: none;"+
 		    "color: #FFFFFF;"+
-		    "padding: 0.3em 0.3em 0.3em 0.7em;"+
-		    "background-color: #303777;"+
-		    "border-radius: 0.3em;"+
-		    "border-style: groove;"+
-		    "border-width: 0.2em;"+
-		    "border-color: #6F74A3;"+
+		    "padding: 0.2em 0.2em 0.2em 0.6em;"+
+		    "background-color: #9898B8;"+
 		    "float: right;"+
 		    "clear: left;"+
 		"}"+
 
-		    "#link:visited {"+
+		    ".link:visited {"+
 		        "color: #FFFFFF;"+
 		    "}"+
 
@@ -267,11 +268,11 @@ public class NewsTabActivity extends Activity {
 			}
 			*/
 			stringBuilder = stringBuilder
-					+ "<div id=\"header\"><table><tr><td><img id=\"logo\" src=\"logomedicinerraadet.jpg\" /></td><td><div id=\"date\">"
+					+ "<div class=\"header\"><table><tr><td><img class=\"logo\" src=\"logomedicinerraadet.jpg\" /></td><td><div class=\"date\">"
 					+ newstring
-					+ "</div></td></tr></table></div><div id=\"content\">"
+					+ "</div></td></tr></table></div><div class=\"content\">"
 					+ var.getContent()
-					+ "</div><div id=\"footer\"><a id=\"link\" href=\""
+					+ "</div><div class=\"footer\"><a class=\"link\" href=\""
 					+ var.getAlternate()
 					+ "\">Læs mere...</a></div></div>";
 			// string.add(var.getContent());
