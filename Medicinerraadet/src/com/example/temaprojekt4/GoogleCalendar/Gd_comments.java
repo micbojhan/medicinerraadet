@@ -1,10 +1,11 @@
 package com.example.temaprojekt4.GoogleCalendar;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Gd_comments{
+public class Gd_comments implements Serializable{
 	@SerializedName("gd$feedLink")
    	private GD_feedLink gd_feedLink;
    	

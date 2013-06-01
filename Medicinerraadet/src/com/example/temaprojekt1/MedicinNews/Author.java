@@ -1,9 +1,10 @@
 
 package com.example.temaprojekt1.MedicinNews;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Author{
+public class Author implements Serializable{
    	private String name;
 
  	public String getName(){

@@ -1,11 +1,12 @@
 
 package com.example.temaprojekt4.GoogleCalendar;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GC_Feed{
+public class GC_Feed implements Serializable{
 	@SerializedName("xmlns")
    	private String xmlns;
 	@SerializedName("xmlns$gCal")

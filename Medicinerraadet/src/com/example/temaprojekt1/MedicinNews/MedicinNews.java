@@ -1,12 +1,17 @@
 
 package com.example.temaprojekt1.MedicinNews;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class MedicinNews{
+public class MedicinNews implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@SerializedName("entries")
    	private ArrayList<Entries> entries;
 	@SerializedName("icon")

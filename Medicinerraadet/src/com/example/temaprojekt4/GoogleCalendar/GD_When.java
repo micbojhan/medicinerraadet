@@ -1,10 +1,11 @@
 package com.example.temaprojekt4.GoogleCalendar;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GD_When{
+public class GD_When implements Serializable{
 	@SerializedName("endTime")
    	private String endTime;
 	@SerializedName("startTime")

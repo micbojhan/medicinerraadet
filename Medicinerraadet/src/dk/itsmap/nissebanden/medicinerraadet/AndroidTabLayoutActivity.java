@@ -1,16 +1,28 @@
 package dk.itsmap.nissebanden.medicinerraadet;
 
+import com.medicin.splashdownload.DownloadedData;
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TabHost;
 
 public class AndroidTabLayoutActivity extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_android_tab_layout);
-
+	    DownloadedData tis = new DownloadedData();
+		tis = (DownloadedData) getIntent().getSerializableExtra("dataforTabs");
+		/*
+		Log.e("BH_Log","TAB: "+tis.getDownloadedDateTime().toString());
+		Log.e("BH_Log","TAB: "+tis.getMedicinNews());
+		Log.e("BH_Log","TAB: "+tis.getGoogleCalender());
+		Log.e("BH_Log","TAB: "+tis.getDownloadedSubjectMails());
+		Log.e("BH_Log","TAB: "+tis.getDownloadedSemesterMails());
+		*/
+		
 	    Resources res = getResources(); // Resource object to get Drawables
 	    TabHost tabHost = getTabHost();  // The activity TabHost
 	    TabHost.TabSpec spec;  // Resusable TabSpec for each tab
@@ -18,7 +30,7 @@ public class AndroidTabLayoutActivity extends TabActivity {
 
 	    // Create an Intent to launch an Activity for the tab (to be reused)
 	    intent = new Intent().setClass(this, NewsTabActivity.class);
-
+	    intent.putExtra("DLdata", tis);
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec("news").setIndicator("Nyheder",
 	                      res.getDrawable(R.drawable.ic_tab_news))

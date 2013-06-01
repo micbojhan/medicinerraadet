@@ -18,6 +18,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import com.example.temaprojekt1.MedicinNews.Entries;
 import com.example.temaprojekt1.MedicinNews.MedicinNews;
 import com.google.gson.Gson;
+import com.medicin.splashdownload.DownloadedData;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -29,123 +30,25 @@ import android.widget.TextView;
 
 public class NewsTabActivity extends Activity {
 	WebView myWebView;
-
+	MedicinNews newsMedicin;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_news_tab);
 		myWebView = (WebView) findViewById(R.id.webView_News);
-		startDownloadMetode();
+		
+	    DownloadedData tis;
+	    tis = (DownloadedData) getParent().getIntent().getSerializableExtra("dataforTabs");
+		newsMedicin = tis.getMedicinNews();
+		
+		if(newsMedicin!=null)
+			setUpHtmlView();
+		
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.news_tab, menu);
-		return true;
-	}
-
-	public void startDownloadMetode() {
-		// Starting the task. Pass an url as the parameter.
-		// new
-		// DownloadTaskMedicinInfo().execute("https://graph.facebook.com/278417128835721");
-		new DownloadTaskMedicinNews()
-				.execute("https://www.facebook.com/feeds/page.php?id=278417128835721&format=json");
-	}
-
-	private class DownloadTaskMedicinNews extends
-			AsyncTask<String, Integer, MedicinNews> {
-
-		// Start....
-		/**
-		 * Before starting background thread Show Progress Bar Dialog
-		 * */
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			// displayProgressBar("Downloading...");
-			// showDialog(progress_bar_type);
-			// brord cast
-			Log.e("HER_AsyncTask: ", "onPreExecute");
-		}
-
-		// Selve arbejdet...
-		/**
-		 * Downloading file in background thread
-		 * */
-		@Override
-		protected MedicinNews doInBackground(String... f_url) {
-			String url = f_url[0];
-			InputStream source = retrieveStream(url);
-			Gson gson = new Gson();
-			Reader reader = new InputStreamReader(source);
-			MedicinNews RawSTOG = gson.fromJson(reader, MedicinNews.class);
-			return RawSTOG;
-		}
-
-		// imens
-		/**
-		 * Updating progress bar
-		 * */
-		@Override
-		protected void onProgressUpdate(Integer... values) {
-			super.onProgressUpdate(values);
-			// updateProgressBar(values[0]);
-			// pDialog.setProgress(Integer.parseInt(progress[0]));
-			Log.e("HER_AsyncTask: ", "onProgressUpdate");
-		}
-
-		// FÆRDIG
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
-		@Override
-		protected void onPostExecute(MedicinNews result) {
-			super.onPostExecute(result);
-			// dismissProgressBar();
-
-			// dismiss the dialog after the file was downloaded
-			// dismissDialog(progress_bar_type);
-
-			// Displaying downloaded image into image view
-			// Reading image path from sdcard
-			// String imagePath =
-			// Environment.getExternalStorageDirectory().toString() +
-			// "/downloadedfile.jpg";
-			// setting downloaded into image view
-			// my_image.setImageDrawable(Drawable.createFromPath(imagePath));
-
-			Log.e("HER_AsyncTask: ", "onPostExecute");
-			sendMessageNews(result);
-		}
-	}
 	
-	public InputStream retrieveStream(String url) {
-		DefaultHttpClient client = new DefaultHttpClient();
-		HttpGet getRequest = new HttpGet(url);
-		try {
-			HttpResponse getResponse = client.execute(getRequest);
-			final int statusCode = getResponse.getStatusLine().getStatusCode();
-			if (statusCode != HttpStatus.SC_OK) {
-				Log.w(getClass().getSimpleName(), "Error " + statusCode
-						+ " for URL " + url);
-				return null;
-			}
-			HttpEntity getResponseEntity = getResponse.getEntity();
-			return getResponseEntity.getContent();
-		} catch (IOException e) {
-			getRequest.abort();
-			Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
-		}
-		return null;
-	}
-	
-	
-	private void sendMessageNews(MedicinNews RawJson) {
-		// Intent i = new Intent("NuErJegKlar");
-		// i.putExtra("YourArrayList", RawJson);
-		// sendBroadcast(i);
-		// LocalBroadcastManager.getInstance(this).sendBroadcast(i);
+	private void setUpHtmlView() {
+
 		String css = ""+
 				
 		"<style type=\"text/css\">"+
@@ -229,7 +132,7 @@ public class NewsTabActivity extends Activity {
 		   final String TD_FORMAT_FULL_PATTERN_PLUS = "yyyy-MM-dd'T'HH:mm:ssZZ";
 		   final String TD_FORMAT_FULL_PATTERN_MINU = "yyyy-MM-dd'T'hh:mm:ss";//:SSS'-'hh:mm";
 		String stringBuilder = "<!DOCTYPE html><html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>Newsfeed for MedHauze</title><link href=\"newscss.css\" rel=\"stylesheet\" /></head><body>";
-		ArrayList<Entries> eList = RawJson.getEntries();
+		ArrayList<Entries> eList = newsMedicin.getEntries();
 		SimpleDateFormat dateFormat = new SimpleDateFormat(TD_FORMAT_FULL_PATTERN_PLUS);
 		Date currentDate = new Date();
 		

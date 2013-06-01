@@ -1,12 +1,13 @@
 
 package com.example.temaprojekt1.MedicinNews;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Entries{
+public class Entries implements Serializable{
 	@SerializedName("alternate")
    	private String alternate;
 	@SerializedName("author")

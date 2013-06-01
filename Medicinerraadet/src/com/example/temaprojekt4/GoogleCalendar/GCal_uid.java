@@ -1,10 +1,11 @@
 package com.example.temaprojekt4.GoogleCalendar;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-public class GCal_uid{
+public class GCal_uid implements Serializable{
 	@SerializedName("value")
    	private String value;
 

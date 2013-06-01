@@ -1,130 +1,54 @@
 package dk.itsmap.nissebanden.medicinerraadet;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 
 import com.example.temaprojekt4.GoogleCalendar.GC_Entry;
 import com.example.temaprojekt4.GoogleCalendar.GC_GoogleCalendar;
 import com.example.temaprojekt4.GoogleCalendar.GD_When;
 import com.example.temaprojekt4.GoogleCalendar.GD_Where;
-import com.google.gson.Gson;
+
+import com.medicin.splashdownload.DownloadedData;
 
 import android.app.Activity;
-import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
+
 import android.webkit.WebView;
-import android.widget.TextView;
+
 
 public class CalendarTabActivity extends Activity {
 	WebView myWebView;
-
+	GC_GoogleCalendar googleCalender; 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calendar_tab);
 		myWebView = (WebView) findViewById(R.id.webView_Calendar);
 		Log.e("hej", myWebView + "");
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.news_tab, menu);
-		return true;
+	    DownloadedData tis;
+		tis = (DownloadedData) getParent().getIntent().getSerializableExtra("dataforTabs");
+		
+		googleCalender = tis.getGoogleCalender();
+		Log.e("BH_log", "DownloadedData: "+ tis + " - googleCalender: "+googleCalender);
 	}
 
 	@Override
 	public void onStart() {
 		super.onStart();
-		startDownloadMetode();
+		if(googleCalender!=null)
+			setUpHtmlView();
 	}
 
-	public void startDownloadMetode() {
-		// Starting the task. Pass an url as the parameter.
-		// new
-		// DownloadTaskMedicinInfo().execute("https://graph.facebook.com/278417128835721");
-		new DownloadTaskGoogleCalendar()
-				.execute("http://www.google.com/calendar/feeds/studmedsam@gmail.com/public/full?alt=json&orderby=starttime&sortorder=ascending&futureevents=true&singleevents=true");
-	}
 
-	private class DownloadTaskGoogleCalendar extends
-			AsyncTask<String, Integer, GC_GoogleCalendar> {
-
-		// Start....
-		/**
-		 * Before starting background thread Show Progress Bar Dialog
-		 * */
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			// displayProgressBar("Downloading...");
-			// showDialog(progress_bar_type);
-			// brord cast
-			Log.e("HER_AsyncTask: ", "onPreExecute");
-		}
-
-		// Selve arbejdet...
-		/**
-		 * Downloading file in background thread
-		 * */
-		@Override
-		protected GC_GoogleCalendar doInBackground(String... f_url) {
-			String url = f_url[0];
-			InputStream source = retrieveStream(url);
-			Gson gson = new Gson();
-			Reader reader = new InputStreamReader(source);
-			GC_GoogleCalendar RawSTOG = gson.fromJson(reader,
-					GC_GoogleCalendar.class);
-			return RawSTOG;
-		}
-
-		// imens
-		/**
-		 * Updating progress bar
-		 * */
-		@Override
-		protected void onProgressUpdate(Integer... values) {
-			super.onProgressUpdate(values);
-			// updateProgressBar(values[0]);
-			// pDialog.setProgress(Integer.parseInt(progress[0]));
-			Log.e("HER_AsyncTask: ", "onProgressUpdate");
-		}
-
-		// FÆRDIG
-		/**
-		 * After completing background task Dismiss the progress dialog
-		 * **/
-		@Override
-		protected void onPostExecute(GC_GoogleCalendar result) {
-			super.onPostExecute(result);
-			// dismissProgressBar();
-
-			// dismiss the dialog after the file was downloaded
-			// dismissDialog(progress_bar_type);
-
-			// Displaying downloaded image into image view
-			// Reading image path from sdcard
-			// String imagePath =
-			// Environment.getExternalStorageDirectory().toString() +
-			// "/downloadedfile.jpg";
-			// setting downloaded into image view
-			// my_image.setImageDrawable(Drawable.createFromPath(imagePath));
-
-			Log.e("HER_AsyncTask: ", "onPostExecute");
+	public void setUpHtmlView()
+	{
+		
 			String css = "" +
 
 			"<style type=\"text/css\">" +
@@ -169,7 +93,7 @@ public class CalendarTabActivity extends Activity {
 
 			String html_part = "";
 
-			List<GC_Entry> entrylist = result.getFeed().getEntry();
+			List<GC_Entry> entrylist = googleCalender.getFeed().getEntry();
 
 			for (GC_Entry entry : entrylist) {
 				String startTime, headerTime, endTime, tempText, shortStartTime;
@@ -246,26 +170,6 @@ public class CalendarTabActivity extends Activity {
 					+ html1 + html_part + html2, "text/html", "utf-8", null);
 
 		}
-	}
-
-	public InputStream retrieveStream(String url) {
-		DefaultHttpClient client = new DefaultHttpClient();
-		HttpGet getRequest = new HttpGet(url);
-		try {
-			HttpResponse getResponse = client.execute(getRequest);
-			final int statusCode = getResponse.getStatusLine().getStatusCode();
-			if (statusCode != HttpStatus.SC_OK) {
-				Log.w(getClass().getSimpleName(), "Error " + statusCode
-						+ " for URL " + url);
-				return null;
-			}
-			HttpEntity getResponseEntity = getResponse.getEntity();
-			return getResponseEntity.getContent();
-		} catch (IOException e) {
-			getRequest.abort();
-			Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
-		}
-		return null;
-	}
-
+	
+	
 }
