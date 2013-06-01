@@ -5,12 +5,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class SemesterMails implements Serializable{
-   	private List mails;
+   	private List<SemesterMail> mails;
 
- 	public List getMails(){
+ 	public List<SemesterMail> getMails(){
 		return this.mails;
 	}
-	public void setMails(List mails){
+	public void setMails(List<SemesterMail> mails){
 		this.mails = mails;
 	}
 }

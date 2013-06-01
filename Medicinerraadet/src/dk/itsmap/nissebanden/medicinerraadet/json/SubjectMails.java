@@ -5,12 +5,12 @@ import java.io.Serializable;
 import java.util.List;
 
 public class SubjectMails implements Serializable{
-   	private List mails;
+   	private List<SubjectMail> mails;
 
- 	public List getMails(){
+ 	public List<SubjectMail> getMails(){
 		return this.mails;
 	}
-	public void setMails(List mails){
+	public void setMails(List<SubjectMail> mails){
 		this.mails = mails;
 	}
 }
