@@ -4,22 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ContactTabActivity"
-    android:background="@color/backgoundcolor" >
+    android:background="@color/backgoundcolor">
     
     <TextView
             android:id="@+id/textView1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             style="@style/header_style"
-            android:text="@string/kontakt_header"
-            android:layout_marginBottom="10dp" />
+            android:text="@string/kontakt_header"/>
 
-    <Spinner
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp" >
+        
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/kontakt_information"
+            android:layout_marginBottom="10dp"/>
+        
+        <Spinner
         android:id="@+id/subject_spinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
-    <Spinner
+    	<Spinner
         android:id="@+id/semester_spinner"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
@@ -27,7 +42,7 @@
     <EditText
         android:id="@+id/text_body"
         android:layout_width="fill_parent"
-        android:layout_height="120dp"
+        android:layout_height="250dp"
         android:gravity="top" 
         android:inputType="textMultiLine"
         android:text="@string/skriv_besked"/>
@@ -39,5 +54,10 @@
         android:layout_gravity="right"
         android:textSize="20sp"
         android:text="@string/send" />
+        
+    </LinearLayout>
+
+    </ScrollView>
+    
 
 </LinearLayout>

@@ -29,16 +29,12 @@
     <string name="who_is_in_mr_header">Hvem er i Medicinerrådet ?</string>
     <string name="who_is_in_mr">MR består af op til 30 medicinstuderende, som har lyst til at engagere sig i diskussion om og forbedring af studiet. MR holder 4 - 5 møder pr. semester, hvor aktuelle emner af studierelateret, social og praktisk karakter bliver taget op. MR-møderne er det forum, hvor kritik af undervisning, klinikophold og alt muligt andet i løbet af et semester bliver diskuteret. Så tager vi det videre i systemet til dem, der bestemmer.</string>
     <string name="medicinerraadet_header">Medicinerrådet</string>
-    <string name="medicinerraadet">Medicinerrådet, i daglig tale MR, er de medicinstuderendes fagråd, som arbejder på at forbedre de medicinstuderendes forhold generelt.
-MR repræsenterer de medicinstuderende i alle universitetets styrende organer så som de nye Institut Fora og Studienævnet. MR er også medlem af Studenterrådet (sammenslutningen af alle fagråd på universitetet). Vi sidder også til bords med dekanen og vores meninger bliver hørt, så vores tilstedeværelse sikrer de studerendes indflydelse på studiet.
-\nInteresseret i et af vores udvalg?
-	</string>
-    <string name="link"><a href="http://www.medicinerraadet.dk/medias/media116.pdf">Download pdf med Medicinerrådets opbygning</a></string>
     <string name="aabningstider_header">MR kontoret</string>
     <string name="aabningstider">Tirsdage: 9-13 \nTorsdage: 8-11</string>
     <string name="aabningstider_into">MR har desuden et kontor med to ugentlige åbningsdage, hvor medicinstuderende kan blive hjulpet med opgaver af praktisk karakter: nøglekort til Medicinerhuset, bogskabe, læsepladser og meget andet. Vi holder åbnet:</string>
     <string name="adresse_header">Adresse</string>
     <string name="adresse"> Medicinerrådet \nÅrhus Universitet \nOle Worms Allé \nBygning 1161 (Medicinerhuset) \n8000 Århus C</string>
+    <string name="kontakt_header">Kontakt</string>
     <string name="kontakt">Kontakt os via kontaktfanen, eller ring på 87167001</string>
     <string name="velkommen">Har du lyst til at være med? Så kom til et møde, snak med nogle af de mange udvalg, og sig din mening om tingene. \nVelkommen!</string>
     <string name="tryk_her">Tryk her !</string>
@@ -48,11 +44,19 @@ MR repræsenterer de medicinstuderende i alle universitetets styrende organer s�
     <string name="fagligdagudvalget">En fredag per semester afholdes Fagligdag. Denne dag får de medicinstuderende undervisningsfri til at deltage i et spændende program af foredragsholdere. MR sørger for at finde arrangører blandt medicinerforeninger og giver råd omkring de praktiske forhold vedr. dagen. Har din forening lyst til at prøve kræfter med Fagligdag? Så kontakt os her igennem app’en.</string>
     <string name="semensteransvarlige_header">Semesteransvarlige</string>
     <string name="fagligdagudvalget_header">Fagligdagsudvalget</string>
-    <string name="varmestueudvalget_header">Varmestueudvlaget</string>
-    <string name="semesteransvarlige">Er det et eller andet på semesteret der ikke fungerer? Er det for meget aflyst undervisning? Kontakt den semesteransvarlige, han/hun vil så tage det videre til Medicinerrådet. Hvert semester prøver den semesteransvarlig at få aftalt et møde med den kursusansvarlige, hvor der bliver snakket om de studerendes bekymringer og forslag til forbedringer.</string>
+    <string name="varmestueudvalget_header">Varmestueudvalget</string>
+    <string name="semesteransvarlige">Er det et eller andet på semesteret der ikke fungerer? Er det for meget aflyst undervisning? Kontakt den semesteransvarlige via <b>Kontakt-fanen</b> og han/hun vil tage det videre til Medicinerrådet.\nHvert semester prøver den semesteransvarlig at få aftalt et møde med den kursusansvarlige, hvor der bliver snakket om de studerendes bekymringer og forslag til forbedringer.</string>
     <string name="uddannelsespolitisk_header">Uddannelsespolitisk Udvalg</string>
     <string name="studenteraadsudvalget_header">Studenterrådsudvalget</string>
+    <string name="send">Send</string>
+    <string name="skriv_besked">Skriv din besked her !</string>
     <string name="splashdownload">Downloader: </string>
     <string name="medicinerraadet_newsheader">Nyheder</string>
     <string name="medicinerraadet_calheader">Kalender</string>
+    <string name="what_is_mr_header">Hvad er Medicinerrådet ?</string>
+    <string name="what_is_mr">Medicinerrådet, i daglig tale MR, er de medicinstuderendes fagråd, som arbejder på at forbedre de medicinstuderendes forhold generelt.
+MR repræsenterer de medicinstuderende i alle universitetets styrende organer så som de nye Institut Fora og Studienævnet. MR er også medlem af Studenterrådet (sammenslutningen af alle fagråd på universitetet). Vi sidder også til bords med dekanen og vores meninger bliver hørt, så vores tilstedeværelse sikrer de studerendes indflydelse på studiet.
+\n\nInteresseret i et af vores udvalg?
+	</string>
+    <string name="kontakt_information">Her har du mulighed for at skrive til Medicinerrådet. Først skal du vælge om det er vedrørende Medicinerhuset og VAB eller om det omkring undervisningen. Ved valg af undervisningen, skal efterfølgende vælge hvilket semester du går på.</string>
 </resources>
