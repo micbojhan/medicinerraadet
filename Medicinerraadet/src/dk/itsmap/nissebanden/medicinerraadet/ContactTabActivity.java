@@ -97,14 +97,14 @@ public class ContactTabActivity extends Activity {
 	}
 	
 	
-
+/*
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.news_tab, menu);
 		return true;
 	}
-
+*/
 	public void addItemsOnSpinnerSemester(SemesterMails result) {
 
 		List<String> list = new ArrayList<String>();
