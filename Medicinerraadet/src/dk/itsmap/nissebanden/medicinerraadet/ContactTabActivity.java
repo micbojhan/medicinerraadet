@@ -19,6 +19,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,6 +59,7 @@ public class ContactTabActivity extends Activity {
 		addItemsOnSpinnerSemester(semesterMails);
 		addItemsOnSpinnerSubject(subjectMails);
 		addListenerOnButton();
+		addTextResetter();
 		/*
 		 * // Create an ArrayAdapter using the string array and a default
 		 * spinner // layout ArrayAdapter<CharSequence> subjectAdapter =
@@ -79,6 +81,21 @@ public class ContactTabActivity extends Activity {
 		 * to the spinner spinner_semester.setAdapter(semesterAdapter);
 		 */
 	}
+	
+	public void addTextResetter(){
+		final EditText et = (EditText) findViewById(R.id.text_body);
+		et.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(et.getText().toString().equals("Skriv din besked her !"))
+				et.setText("");
+				
+			}
+		});
+	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

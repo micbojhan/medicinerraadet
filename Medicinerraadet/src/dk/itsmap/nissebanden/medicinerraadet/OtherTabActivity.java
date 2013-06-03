@@ -9,9 +9,10 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class OtherTabActivity extends Activity {
-	Button button;
+	TextView button;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -19,7 +20,13 @@ public class OtherTabActivity extends Activity {
 		
 		setContentView(R.layout.activity_other_tab);
 	
-		button = (Button) findViewById(R.id.se_udvalg);
+		addButton();
+		
+			
+	}
+
+	private void addButton() {
+		button = (TextView) findViewById(R.id.se_udvalg);
 		button.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -29,8 +36,20 @@ public class OtherTabActivity extends Activity {
 				
 			}
 		});
-		
-			
+	}
+
+	@Override
+	public void onBackPressed() {
+		setContentView(R.layout.activity_other_tab);
+		addButton();
+	}
+
+
+	@Override
+	protected void onPause() {
+		setContentView(R.layout.activity_other_tab);
+		addButton();
+		super.onPause();
 	}
 
 	@Override
