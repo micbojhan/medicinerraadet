@@ -6,6 +6,7 @@
     <color name="backgoundcolor">#DAE0F0</color>
     <color name="header_background">#9898B8</color>
     <color name="mrblue">#2E3875</color>
-    <color name="mrlblue">#55557B</color>    
+    <color name="mrlblue">#55557B</color>  
+    <color name="header_overall">#55557B</color>  
     
 </resources>

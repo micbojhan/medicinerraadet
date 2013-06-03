@@ -1,4 +1,20 @@
-<WebView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/webView_News"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" />
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+    <TextView
+            android:id="@+id/textViewNews"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/header_style"
+            android:background="@color/header_overall"
+            android:text="@string/medicinerraadet_newsheader" />
+    
+    <WebView 
+        android:id="@+id/webView_News"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content" />
+    
+</LinearLayout>
+
