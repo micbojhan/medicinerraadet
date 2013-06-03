@@ -54,4 +54,5 @@ MR repræsenterer de medicinstuderende i alle universitetets styrende organer s�
     <string name="studenteraadsudvalget_header">Studenterrådsudvalget</string>
     <string name="splashdownload">Downloader: </string>
     <string name="medicinerraadet_newsheader">Nyheder</string>
+    <string name="medicinerraadet_calheader">Kalender</string>
 </resources>

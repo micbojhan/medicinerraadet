@@ -8,7 +8,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             style="@style/header_style"
-            android:background="@color/header_overall"
             android:text="@string/medicinerraadet_newsheader" />
     
     <WebView 

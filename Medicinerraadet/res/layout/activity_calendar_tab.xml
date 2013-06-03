@@ -1,4 +1,19 @@
-<WebView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/webView_Calendar"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" />
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textViewCal"
+        style="@style/header_style"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/header_overall"
+        android:text="@string/medicinerraadet_calheader" />
+
+    <WebView
+        android:id="@+id/webView_Calendar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
