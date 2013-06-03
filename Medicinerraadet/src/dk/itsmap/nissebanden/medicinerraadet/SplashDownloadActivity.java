@@ -38,7 +38,7 @@ public class SplashDownloadActivity extends Activity {
 	DownloadedData data_downloaded;
 	ProgressBar pb_h;
 	TextView text_download;
-	ProgressBar pb_spinner;
+	//ProgressBar pb_spinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class SplashDownloadActivity extends Activity {
 		pb_h = (ProgressBar) findViewById(R.id.progressBar_downloading_bar);
 		pb_h.setMax(4);
 		text_download = (TextView) findViewById(R.id.textView_downloading);
-		pb_spinner = (ProgressBar) findViewById(R.id.progressBar_downloading_spinner);
+		//pb_spinner = (ProgressBar) findViewById(R.id.progressBar_downloading_spinner);
 	}
 
 	public void startDownloadService()
@@ -330,7 +330,7 @@ public class SplashDownloadActivity extends Activity {
 			else
 			{
 				Log.e("BH_Log", "Der er intet indhold til appen");
-				pb_spinner.setVisibility(View.INVISIBLE);
+				//pb_spinner.setVisibility(View.INVISIBLE);
 				text_download.setText("Kunne ikke hente indhold \n tjek internetadgang");
 				toast2();
 				//android.os.Process.killProcess(android.os.Process.myPid());

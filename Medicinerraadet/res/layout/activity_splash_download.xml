@@ -1,51 +1,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:weightSum="4">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:orientation="vertical" >
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:src="@drawable/overskrift" />
 
-        <TextView
-            android:id="@+id/textView_mediciner_overskrift"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Medicinerrådet"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:src="@drawable/storlogo" />
 
-        <ImageView
-            android:id="@+id/imageView_logo"
-            android:layout_width="104dp"
-            android:layout_height="104dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_launcher" />
-
-        <ProgressBar
-            android:id="@+id/progressBar_downloading_spinner"
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
-        <ProgressBar
-            android:id="@+id/progressBar_downloading_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="148dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:maxHeight="25dp"
-            android:minHeight="25dp" />
-
-        <TextView
-            android:id="@+id/textView_downloading"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Downloading:" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textView_downloading"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/splashdownload"
+        android:textColor="@color/mrblue"/>
+    
+    <ProgressBar
+        android:id="@+id/progressBar_downloading_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:layout_weight="0.5"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:maxHeight="25dp"
+        android:minHeight="25dp"
+        android:progressDrawable="@drawable/progressblue" />"
 
 </LinearLayout>

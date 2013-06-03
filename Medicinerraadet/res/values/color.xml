@@ -5,6 +5,7 @@
     <color name="black">#ff000000</color>
     <color name="backgoundcolor">#DAE0F0</color>
     <color name="header_background">#9898B8</color>
-    
+    <color name="mrblue">#2E3875</color>
+    <color name="mrlblue">#55557B</color>    
     
 </resources>

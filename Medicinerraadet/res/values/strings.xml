@@ -52,4 +52,5 @@ MR repræsenterer de medicinstuderende i alle universitetets styrende organer s�
     <string name="semesteransvarlige">Er det et eller andet på semesteret der ikke fungerer? Er det for meget aflyst undervisning? Kontakt den semesteransvarlige, han/hun vil så tage det videre til Medicinerrådet. Hvert semester prøver den semesteransvarlig at få aftalt et møde med den kursusansvarlige, hvor der bliver snakket om de studerendes bekymringer og forslag til forbedringer.</string>
     <string name="uddannelsespolitisk_header">Uddannelsespolitisk Udvalg</string>
     <string name="studenteraadsudvalget_header">Studenterrådsudvalget</string>
+    <string name="splashdownload">Downloader: </string>
 </resources>
