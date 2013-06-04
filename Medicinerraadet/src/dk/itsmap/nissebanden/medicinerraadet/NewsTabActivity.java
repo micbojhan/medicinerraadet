@@ -1,12 +1,21 @@
 package dk.itsmap.nissebanden.medicinerraadet;
 
+import java.io.StringReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.input.SAXBuilder;
+import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
 
 import com.example.temaprojekt1.MedicinNews.Entries;
@@ -64,8 +73,8 @@ public class NewsTabActivity extends Activity {
 
 				".content a:visited {" + "color: #2E3875;" + "}" +
 
-				".img {" + "float: right;" + "margin: 0.2em;"
-				+ "max-width: 9em;" + "border-style: none;" + "}" +
+				".img {" + "float: right;" + "margin: 0.2em;" + "margin-left: 0.6em;"
+				+ "max-width: 8em;" + "border-style: none;" + "}" +
 
 				".footer {" + "width: 100%;" + "margin-bottom: 3em;"
 				+ "margin-top: 0.5em;" + "}" +
@@ -98,17 +107,59 @@ public class NewsTabActivity extends Activity {
 
 			// String newstring2 = "";
 			String newstring = "Nyt fra Medicinerr�det";
-			String newdatestring = new SimpleDateFormat(
-					"EEEE, d. MMMM yyyy (HH:mm)").format(date);
+			String newdatestring = new SimpleDateFormat("EEEE, d. MMMM yyyy (HH:mm)").format(date);
 			char[] stringArray = newdatestring.toCharArray();
 			stringArray[0] = Character.toUpperCase(stringArray[0]);
 			newdatestring = new String(stringArray);
 
+			// Finding image-content with jdom and moving it to the top to improve news appearance
+			String content = "<root>" + var.getContent() +"</root>";
+
+			try {
+				SAXBuilder b = new SAXBuilder();
+				XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
+				Document d = b.build(new StringReader(content));
+				
+				Element imageNode = null;
+				List<Element> alinks = d.getRootElement().getChildren();
+							
+				for(Element e : alinks)
+				{
+					if(e.getName() == "a"){
+						Log.d("MHN_Log", "Fandt et link");
+						if(e.getChild("img")!=null)
+						{
+							Log.d("MHN_Log", "Fandt et billede i et link");
+							imageNode = e;
+							d.getRootElement().removeContent(e);
+							d.getRootElement().addContent(0, imageNode);
+							break;
+						}
+					}
+					if(e.getName() == "img"){
+						Log.d("MHN_Log", "Fandt et billede uden link");
+						imageNode = e;
+						d.getRootElement().removeContent(e);
+						d.getRootElement().addContent(0, imageNode);
+						break;
+					}
+				}
+							
+				content = outputter.outputString(d);
+			} catch (Exception e) {
+				System.err.println(e);
+			}
+						
+			content = content.replace("<root>", "");
+			content = content.replace("</root>", "");
+						
+						
 			stringBuilder = stringBuilder
 					+ "<div class=\"header\"><table><tr><td><img class=\"logo\" src=\"logomedicinerraadet.jpg\" /></td><td><div class=\"date\">"
 					+ newstring
 					+ "</div></td></tr></table></div><div class=\"content\">"
-					+ "<b>" + newdatestring + "</b><br/>" + var.getContent()
+					+ "<b>" + newdatestring + "</b><br/>" 
+					+ content
 					+ "</div><div class=\"footer\"><a class=\"link\" href=\""
 					+ var.getAlternate() + "\">L�s mere > </a></div></div>";
 		}

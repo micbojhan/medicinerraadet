@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/gson-2.2.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/gson-2.2.3-javadoc.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/gson-2.2.3-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/jdom-1.1.3.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

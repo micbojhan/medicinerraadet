@@ -74,7 +74,7 @@ public class SplashDownloadActivity extends Activity {
 					.getDownloadedDateTime().getTime());
 			Log.e("BH_Log", "indholdet er " + (double) diff / 60 / 60 / 1000
 					+ " timer gammel");
-			int timeGammel = 0; // 3 timer
+			int timeGammel = 3; // 3 timer
 			if (diff > timeGammel * 60 * 60 * 1000) {
 				Log.e("BH_Log",
 						"Indholdet er for gammelt, Downloader noget nyt");
