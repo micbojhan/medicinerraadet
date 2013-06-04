@@ -1,16 +1,19 @@
-
 package com.example.temaprojekt1.MedicinNews;
 
 import java.io.Serializable;
-import java.util.List;
 
-public class Author implements Serializable{
-   	private String name;
+public class Author implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6315894007062719367L;
+	private String name;
 
- 	public String getName(){
+	public String getName() {
 		return this.name;
 	}
-	public void setName(String name){
+
+	public void setName(String name) {
 		this.name = name;
 	}
 }
