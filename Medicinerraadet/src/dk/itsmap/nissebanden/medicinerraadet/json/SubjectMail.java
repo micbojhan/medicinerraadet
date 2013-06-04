@@ -2,7 +2,11 @@ package dk.itsmap.nissebanden.medicinerraadet.json;
 
 import java.io.Serializable;
 
-public class SubjectMail implements Serializable{
+public class SubjectMail implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2747771054568722292L;
 	private String id;
 	private String mailAdr;
 	private String nameFirst;

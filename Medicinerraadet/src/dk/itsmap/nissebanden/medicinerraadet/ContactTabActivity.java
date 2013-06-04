@@ -3,28 +3,26 @@ package dk.itsmap.nissebanden.medicinerraadet;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.medicin.splashdownload.DownloadedData;
 
 import dk.itsmap.nissebanden.medicinerraadet.json.SemesterMail;
 import dk.itsmap.nissebanden.medicinerraadet.json.SemesterMails;
 import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMail;
 import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMails;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TabWidget;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class ContactTabActivity extends Activity {
 	Spinner spinner_subject;
@@ -54,7 +52,8 @@ public class ContactTabActivity extends Activity {
 		contextView = (TextView) findViewById(R.id.text_body);
 		btnSubmit = (Button) findViewById(R.id.btnSubmit);
 		spinner_subject = (Spinner) findViewById(R.id.subject_spinner);
-		spinner_subject.setOnItemSelectedListener(new SubjectOnItemSelectedListener());
+		spinner_subject
+				.setOnItemSelectedListener(new SubjectOnItemSelectedListener());
 		spinner_semester = (Spinner) findViewById(R.id.semester_spinner);
 		spinner_semester.setVisibility(View.INVISIBLE);
 		addItemsOnSpinnerSemester(semesterMails);
@@ -82,29 +81,25 @@ public class ContactTabActivity extends Activity {
 		 * to the spinner spinner_semester.setAdapter(semesterAdapter);
 		 */
 	}
-	
-	public void addTextResetter(){
+
+	public void addTextResetter() {
 		final EditText et = (EditText) findViewById(R.id.text_body);
 		et.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
-				if(et.getText().toString().equals("Skriv din besked her !"))
-				et.setText("");
-				
+				if (et.getText().toString().equals("Skriv din besked her !"))
+					et.setText("");
+
 			}
 		});
 	}
-	
-	
-/*
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.news_tab, menu);
-		return true;
-	}
-*/
+
+	/*
+	 * @Override public boolean onCreateOptionsMenu(Menu menu) { // Inflate the
+	 * menu; this adds items to the action bar if it is present.
+	 * getMenuInflater().inflate(R.menu.news_tab, menu); return true; }
+	 */
 	public void addItemsOnSpinnerSemester(SemesterMails result) {
 
 		List<String> list = new ArrayList<String>();
@@ -161,15 +156,17 @@ public class ContactTabActivity extends Activity {
 
 	public void loopSubjects() {
 		for (SubjectMail sb : subjectMails.getMails()) {
-			if (sb.getNickName() == String.valueOf(spinner_subject.getSelectedItem())) {
-				if (sb.getShowSemester() == true)
-				{
+			if (sb.getNickName() == String.valueOf(spinner_subject
+					.getSelectedItem())) {
+				if (sb.getShowSemester() == true) {
 					loopSemesters();
 					break;
 				}
-					
+
 				else {
-					sendMail("MR-app: " + sb.getNickName(), contextView.getText().toString(), new String[] { sb.getMailAdr() });
+					sendMail("MR-app: " + sb.getNickName(), contextView
+							.getText().toString(),
+							new String[] { sb.getMailAdr() });
 					break;
 				}
 			}
@@ -178,8 +175,10 @@ public class ContactTabActivity extends Activity {
 
 	public void loopSemesters() {
 		for (SemesterMail sem : semesterMails.getMails()) {
-			if (sem.getNickName() == String.valueOf(spinner_semester.getSelectedItem())) {
-				sendMail("MR-app: " + sem.getNickName(), contextView.getText().toString(), new String[] { sem.getMailAdr() });
+			if (sem.getNickName() == String.valueOf(spinner_semester
+					.getSelectedItem())) {
+				sendMail("MR-app: " + sem.getNickName(), contextView.getText()
+						.toString(), new String[] { sem.getMailAdr() });
 				break;
 
 			}
@@ -194,17 +193,12 @@ public class ContactTabActivity extends Activity {
 			public void onClick(View v) {
 				loopSubjects();
 				/*
-				Toast.makeText(
-						ContactTabActivity.this,
-						"OnClickListener : "
-								+ "\nSpinner 1 : "
-								+ String.valueOf(spinner_subject
-										.getSelectedItem())
-								+ "\nSpinner 2 : "
-								+ String.valueOf(spinner_semester
-										.getSelectedItem()), Toast.LENGTH_SHORT)
-						.show();
-						*/
+				 * Toast.makeText( ContactTabActivity.this, "OnClickListener : "
+				 * + "\nSpinner 1 : " + String.valueOf(spinner_subject
+				 * .getSelectedItem()) + "\nSpinner 2 : " +
+				 * String.valueOf(spinner_semester .getSelectedItem()),
+				 * Toast.LENGTH_SHORT) .show();
+				 */
 			}
 
 		});

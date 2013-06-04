@@ -5,21 +5,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-
-import com.example.temaprojekt1.MedicinNews.MedicinNews;
-import com.example.temaprojekt4.GoogleCalendar.GC_GoogleCalendar;
-import com.google.gson.Gson;
-import com.medicin.splashdownload.DownloadedData;
-
-import dk.itsmap.nissebanden.medicinerraadet.json.SemesterMails;
-import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMail;
-import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMails;
 
 import android.app.Service;
 import android.content.Intent;
@@ -28,6 +18,14 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+
+import com.example.temaprojekt1.MedicinNews.MedicinNews;
+import com.example.temaprojekt4.GoogleCalendar.GC_GoogleCalendar;
+import com.google.gson.Gson;
+import com.medicin.splashdownload.DownloadedData;
+
+import dk.itsmap.nissebanden.medicinerraadet.json.SemesterMails;
+import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMails;
 
 public class DownloadService extends Service {
 	private DownloadedData downloadedData = new DownloadedData();
@@ -38,10 +36,12 @@ public class DownloadService extends Service {
 			return DownloadService.this;
 		}
 	}
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		return mBinder;
 	}
+
 	public InputStream retrieveStream(String url) {
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpGet getRequest = new HttpGet(url);
@@ -63,110 +63,59 @@ public class DownloadService extends Service {
 		sendMessageToSpalshScreen_downloadError();
 		return null;
 	}
-	
-	
-	
-	private void sendMessageToSpalshScreen_downloadError()
-	{
+
+	private void sendMessageToSpalshScreen_downloadError() {
 		Intent i = new Intent("downloadError");
-		LocalBroadcastManager.getInstance(this).sendBroadcast(i);	
+		LocalBroadcastManager.getInstance(this).sendBroadcast(i);
 	}
+
 	private void sendMessageToSpalshScreen_AllDone() {
 		Intent i = new Intent("AllDone");
 		/*
-		Log.e("BH_Log1", "switchScreen Check data:" + downloadedData);
-		Log.e("BH_Log1", "switchScreen DateTime"+downloadedData.getDownloadedDateTime());
-		Log.e("BH_Log1", "switchScreen Kalender"+downloadedData.getGoogleCalender());
-		Log.e("BH_Log1", "switchScreen News"+downloadedData.getMedicinNews());
-		Log.e("BH_Log1", "switchScreen SemsterMails"+downloadedData.getDownloadedSemesterMails());
-		Log.e("BH_Log1", "switchScreen SubjectMails"+downloadedData.getDownloadedSubjectMails());
-		*/
-		i.putExtra("dataAllDone", downloadedData); 
+		 * Log.e("BH_Log1", "switchScreen Check data:" + downloadedData);
+		 * Log.e("BH_Log1",
+		 * "switchScreen DateTime"+downloadedData.getDownloadedDateTime());
+		 * Log.e("BH_Log1",
+		 * "switchScreen Kalender"+downloadedData.getGoogleCalender());
+		 * Log.e("BH_Log1",
+		 * "switchScreen News"+downloadedData.getMedicinNews());
+		 * Log.e("BH_Log1",
+		 * "switchScreen SemsterMails"+downloadedData.getDownloadedSemesterMails
+		 * ()); Log.e("BH_Log1",
+		 * "switchScreen SubjectMails"+downloadedData.getDownloadedSubjectMails
+		 * ());
+		 */
+		i.putExtra("dataAllDone", downloadedData);
 		LocalBroadcastManager.getInstance(this).sendBroadcast(i);
-	} 
-	private void sendMessageToSpalshScreen_proces(int procent, String tekst)
-	{
-		Intent i = new Intent("procestask");
-		i.putExtra("proces_procent", procent); 
-		i.putExtra("proces_tekst", tekst); 
-		LocalBroadcastManager.getInstance(this).sendBroadcast(i);	
 	}
-	
-	
-	
-	
-	
-	
+
+	private void sendMessageToSpalshScreen_proces(int procent, String tekst) {
+		Intent i = new Intent("procestask");
+		i.putExtra("proces_procent", procent);
+		i.putExtra("proces_tekst", tekst);
+		LocalBroadcastManager.getInstance(this).sendBroadcast(i);
+	}
+
 	public void startDownloadGoogleCalendarData() {
 		new DownloadTaskGoogleCalendar()
 				.execute("http://www.google.com/calendar/feeds/studmedsam@gmail.com/public/full?alt=json&orderby=starttime&sortorder=ascending&futureevents=true&singleevents=true");
 	}
+
 	public void startDownloadMedicinNews() {
 		new DownloadTaskMedicinNews()
 				.execute("https://www.facebook.com/feeds/page.php?id=278417128835721&format=json");
 	}
+
 	public void startDownload_mails_json_semesters() {
 		new DownloadTaskSemesterMails()
 				.execute("http://www.bojsen-hansen.dk/medicinerraadet/mails_json_semesters.txt");
 	}
+
 	public void startDownload_mailsjson() {
 		new DownloadTaskSubjectMails()
 				.execute("http://www.bojsen-hansen.dk/medicinerraadet/mailsjson.txt");
 	}
 
-
-
-	
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	private class DownloadTaskGoogleCalendar extends
 			AsyncTask<String, Integer, GC_GoogleCalendar> {
 		@Override
@@ -181,40 +130,30 @@ public class DownloadService extends Service {
 			String url = f_url[0];
 			InputStream source = retrieveStream(url);
 			Gson gson = new Gson();
-			if(source==null)
+			if (source == null)
 				return null;
 			Reader reader = new InputStreamReader(source);
-			GC_GoogleCalendar RawSTOG = gson.fromJson(reader, GC_GoogleCalendar.class);
+			GC_GoogleCalendar RawSTOG = gson.fromJson(reader,
+					GC_GoogleCalendar.class);
 			return RawSTOG;
 		}
 
 		@Override
 		protected void onPostExecute(GC_GoogleCalendar result) {
 			super.onPostExecute(result);
-			if(result!=null)
-			{
+			if (result != null) {
 				Log.e("AsyncTask: ", "onPostExecute: GC_GoogleCalendar");
 				downloadedData.setGoogleCalende(result);
 				// dismissProgressBar();
 				startDownloadMedicinNews();
-				
+
 				sendMessageToSpalshScreen_proces(1, "Kalender hentet");
-				
+
 			}
 		}
 	}
-	
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			private class DownloadTaskMedicinNews extends
+
+	private class DownloadTaskMedicinNews extends
 			AsyncTask<String, Integer, MedicinNews> {
 
 		@Override
@@ -243,12 +182,8 @@ public class DownloadService extends Service {
 			startDownload_mailsjson();
 		}
 	}
-			
-			
-			
-			
-			
-			private class DownloadTaskSubjectMails extends
+
+	private class DownloadTaskSubjectMails extends
 			AsyncTask<String, Integer, SubjectMails> {
 
 		@Override
@@ -277,13 +212,8 @@ public class DownloadService extends Service {
 			startDownload_mails_json_semesters();
 		}
 	}
-			
-			
-			
-			
-			
-			
-			private class DownloadTaskSemesterMails extends
+
+	private class DownloadTaskSemesterMails extends
 			AsyncTask<String, Integer, SemesterMails> {
 
 		@Override
@@ -309,10 +239,9 @@ public class DownloadService extends Service {
 			downloadedData.setDownloadedSemesterMails(result);
 			sendMessageToSpalshScreen_proces(4, "Mails hentet");
 			Log.e("HER_AsyncTask: ", "onPostExecute");
-			
+
 			sendMessageToSpalshScreen_AllDone();
 		}
 	}
 
-			
 }
