@@ -27,7 +27,7 @@
         <item>Forskning</item>
     </string-array>
     <string name="who_is_in_mr_header">Hvem er i Medicinerrådet ?</string>
-    <string name="who_is_in_mr">MR består af op til 30 medicinstuderende, som har lyst til at engagere sig i diskussion om og forbedring af studiet. MR holder 4 - 5 møder pr. semester, hvor aktuelle emner af studierelateret, social og praktisk karakter bliver taget op. MR-møderne er det forum, hvor kritik af undervisning, klinikophold og alt muligt andet i løbet af et semester bliver diskuteret. Så tager vi det videre i systemet til dem, der bestemmer.</string>
+    <string name="who_is_in_mr">MR består af op til 30 medicinstuderende, som har lyst til at engagere sig i diskussion om og forbedring af studiet. MR holder 4 - 5 møder pr. semester, hvor aktuelle emner af studierelateret, social og praktisk karakter bliver taget op. MR-møderne er det forum, hvor kritik af undervisning, klinikophold og alt muligt andet i løbet af et semester bliver diskuteret. Så tager vi det videre i systemet til dem, der bestemmer. \nHar du lyst til at være med? Så kom til et møde, snak med nogle af de mange udvalg, og sig din mening om tingene. \nVelkommen!</string>
     <string name="medicinerraadet_header">Medicinerrådet</string>
     <string name="aabningstider_header">MR kontoret</string>
     <string name="aabningstider">Tirsdage: 9-13 \nTorsdage: 8-11</string>
@@ -36,7 +36,6 @@
     <string name="adresse"> Medicinerrådet \nÅrhus Universitet \nOle Worms Allé \nBygning 1161 (Medicinerhuset) \n8000 Århus C</string>
     <string name="kontakt_header">Kontakt</string>
     <string name="kontakt">Kontakt os via kontaktfanen, eller ring på 87167001</string>
-    <string name="velkommen">Har du lyst til at være med? Så kom til et møde, snak med nogle af de mange udvalg, og sig din mening om tingene. \nVelkommen!</string>
     <string name="tryk_her">Tryk her !</string>
     <string name="varmestueudvalget">Varmestueudvalget også kaldt VU sørger for den daglige drift af Medicinerhuset. Et fælles hus for alle medicinstuderende med computerrum, læsesale, bogskabe – og fredagsbar! VU sørger blandt andet for te-køkkenet og snakker tæt sammen med de blå mænd omkring husets tilstand. Sammen med Tandlægerne sidder VU også i husudvalget i Victor Albeck Bygningen (VAB).</string>
     <string name="uddannelsespolitisk">UPU repræsenterer Medicinerrådet AU i den nationale uddannelsespolitiske debat omkring medicinstudiet. Som medlem af Uddannelsespolitisk Udvalg (UPU) gennem MR sidder man ved til møder i UPU, hvor der er deltagere fra de fire medicinerråd (København, Odense, Aalborg og Aarhus), samt FADLs kredsforeninger. Møderne finder sted efter aftale mellem udvalgets medlemmer med ca. et møde om måneden.  </string>
