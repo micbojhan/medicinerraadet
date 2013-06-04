@@ -43,9 +43,10 @@ public class NewsTabActivity extends Activity {
 	}
 
 	private void setUpHtmlView() {
+		String head = "<!DOCTYPE html><html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>Newsfeed for MedHauze</title>";
 
 		String css = "" +
-
+		
 		"<style type=\"text/css\">" +
 
 		"body {" + "background-color: #DAE0F0;"
@@ -88,7 +89,8 @@ public class NewsTabActivity extends Activity {
 
 				"</style>";
 		final String TD_FORMAT_FULL_PATTERN_PLUS = "yyyy-MM-dd'T'HH:mm:ssZZ";
-		String stringBuilder = "<!DOCTYPE html><html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"><head><title>Newsfeed for MedHauze</title><link href=\"newscss.css\" rel=\"stylesheet\" /></head><body>";
+		
+		String stringBuilder = "</head><body>";
 		ArrayList<Entries> eList = newsMedicin.getEntries();
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
 				TD_FORMAT_FULL_PATTERN_PLUS);
@@ -161,12 +163,11 @@ public class NewsTabActivity extends Activity {
 					+ "<b>" + newdatestring + "</b><br/>" 
 					+ content
 					+ "</div><div class=\"footer\"><a class=\"link\" href=\""
-					+ var.getAlternate() + "\">Lï¿½s mere > </a></div></div>";
+					+ var.getAlternate() + "\">Læs mere > </a></div></div>";
 		}
 		stringBuilder = stringBuilder + "</body></html>";
 
-		myWebView.loadDataWithBaseURL("file:///android_res/drawable/", css
-				+ stringBuilder, "text/html", "utf-8", null);
+		myWebView.loadDataWithBaseURL("file:///android_res/drawable/", head + css + stringBuilder, "text/html", "utf-8", null);
 
 	}
 
