@@ -106,7 +106,7 @@ public class NewsTabActivity extends Activity {
 			}
 
 			// String newstring2 = "";
-			String newstring = "Nyt fra Medicinerrï¿½det";
+			String newstring = "Nyt fra Medicinerrådet";
 			String newdatestring = new SimpleDateFormat("EEEE, d. MMMM yyyy (HH:mm)").format(date);
 			char[] stringArray = newdatestring.toCharArray();
 			stringArray[0] = Character.toUpperCase(stringArray[0]);
