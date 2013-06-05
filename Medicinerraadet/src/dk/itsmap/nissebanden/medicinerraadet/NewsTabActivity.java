@@ -95,6 +95,7 @@ public class NewsTabActivity extends Activity {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
 				TD_FORMAT_FULL_PATTERN_PLUS);
 
+		Log.d("MHN_Log", "Building HTML");
 		for (Entries var : eList) {
 			Date date = null;
 			// Date timeSpan = null;
@@ -115,6 +116,7 @@ public class NewsTabActivity extends Activity {
 			newdatestring = new String(stringArray);
 
 			// Finding image-content with jdom and moving it to the top to improve news appearance
+			
 			String content = "<root>" + var.getContent() +"</root>";
 
 			try {
@@ -124,14 +126,12 @@ public class NewsTabActivity extends Activity {
 				
 				Element imageNode = null;
 				List<Element> alinks = d.getRootElement().getChildren();
-							
+				
 				for(Element e : alinks)
 				{
 					if(e.getName() == "a"){
-						Log.d("MHN_Log", "Fandt et link");
 						if(e.getChild("img")!=null)
 						{
-							Log.d("MHN_Log", "Fandt et billede i et link");
 							imageNode = e;
 							d.getRootElement().removeContent(e);
 							d.getRootElement().addContent(0, imageNode);
@@ -139,7 +139,6 @@ public class NewsTabActivity extends Activity {
 						}
 					}
 					if(e.getName() == "img"){
-						Log.d("MHN_Log", "Fandt et billede uden link");
 						imageNode = e;
 						d.getRootElement().removeContent(e);
 						d.getRootElement().addContent(0, imageNode);
@@ -169,6 +168,8 @@ public class NewsTabActivity extends Activity {
 					+ var.getAlternate() + "\">Læs mere > </a></div>";
 		}
 		stringBuilder = stringBuilder + "</body></html>";
+		
+		Log.d("MHN_Log", "Loading HTML to WebView");
 
 		myWebView.loadDataWithBaseURL("file:///android_res/drawable/", head + css + stringBuilder, "text/html", "utf-8", null);
 
