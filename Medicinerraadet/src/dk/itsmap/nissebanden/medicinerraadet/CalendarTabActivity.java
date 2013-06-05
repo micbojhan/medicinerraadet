@@ -80,11 +80,10 @@ public class CalendarTabActivity extends Activity {
 				+ "</style>";
 
 		String html1 = "<html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\">"
-				+ "<head>" + "<title>Newsfeed for MedHauze</title>" +
-				// "<link href=\"file:///android_asset/newscss.css\" rel=\"stylesheet\" />"+
-				"</head>" + "<body>";
+				+ "<head><title>Newsfeed for MedHauze</title>"; 
+				
 
-		String html_part = "";
+		String html_part = "</head><body>";
 
 		List<GC_Entry> entrylist = googleCalender.getFeed().getEntry();
 
@@ -156,9 +155,6 @@ public class CalendarTabActivity extends Activity {
 		}
 
 		String html2 = "</body>" + "</html>";
-		// Log.e("HEHEH", css+html1+html_part+html2);
-		// myWebView.loadData(css+html1+html_part+html2, "text/html",
-		// "utf-8");
 		myWebView.loadDataWithBaseURL("file:///android_res/drawable/", css
 				+ html1 + html_part + html2, "text/html", "utf-8", null);
 

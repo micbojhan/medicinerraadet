@@ -157,13 +157,16 @@ public class NewsTabActivity extends Activity {
 						
 						
 			stringBuilder = stringBuilder
-					+ "<div class=\"header\"><table><tr><td><img class=\"logo\" src=\"logomedicinerraadet.jpg\" /></td><td><div class=\"date\">"
+					+ "<div class=\"header\">" 
+					+ "<table><tr><td><img class=\"logo\" src=\"logomedicinerraadet.jpg\" /></td>" 
+					+ "<td><div class=\"date\">"
 					+ newstring
-					+ "</div></td></tr></table></div><div class=\"content\">"
+					+ "</div></td></tr></table>" 
+					+ "</div><div class=\"content\">"
 					+ "<b>" + newdatestring + "</b><br/>" 
 					+ content
 					+ "</div><div class=\"footer\"><a class=\"link\" href=\""
-					+ var.getAlternate() + "\">Læs mere > </a></div></div>";
+					+ var.getAlternate() + "\">Læs mere > </a></div>";
 		}
 		stringBuilder = stringBuilder + "</body></html>";
 

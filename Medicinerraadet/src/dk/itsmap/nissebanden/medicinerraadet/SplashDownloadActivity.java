@@ -68,7 +68,7 @@ public class SplashDownloadActivity extends Activity {
 			startDownloadService();
 		} else {
 			Log.e("BH_Log",
-					"Der er gammelt indhold tjekker datoen pï¿½ indholdet");
+					"Der er gammelt indhold tjekker datoen på indholdet");
 			Date currentDateTime = new Date();
 			long diff = (currentDateTime.getTime() - data_downloaded
 					.getDownloadedDateTime().getTime());
