@@ -125,6 +125,7 @@ public class NewsTabActivity extends Activity {
 				Document d = b.build(new StringReader(content));
 				
 				Element imageNode = null;
+				@SuppressWarnings("unchecked")
 				List<Element> alinks = d.getRootElement().getChildren();
 				
 				for(Element e : alinks)

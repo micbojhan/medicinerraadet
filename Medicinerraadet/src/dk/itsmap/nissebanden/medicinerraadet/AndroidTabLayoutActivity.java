@@ -8,6 +8,7 @@ import android.widget.TabHost;
 
 import com.medicin.splashdownload.DownloadedData;
 
+@SuppressWarnings("deprecation")
 public class AndroidTabLayoutActivity extends TabActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

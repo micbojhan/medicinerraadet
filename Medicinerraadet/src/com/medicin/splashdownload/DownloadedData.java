@@ -1,24 +1,17 @@
 package com.medicin.splashdownload;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Date;
 
-import android.content.Context;
-import android.os.Environment;
 
 //import com.example.temaprojekt1.MedicinInfo.MedicinInfo;
 import com.example.temaprojekt1.MedicinNews.MedicinNews;
 import com.example.temaprojekt4.GoogleCalendar.GC_GoogleCalendar;
 
 import dk.itsmap.nissebanden.medicinerraadet.json.SemesterMails;
-import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMail;
 import dk.itsmap.nissebanden.medicinerraadet.json.SubjectMails;
 
+@SuppressWarnings("serial")
 public class DownloadedData implements Serializable{
 
 	private Date downloadedTime;

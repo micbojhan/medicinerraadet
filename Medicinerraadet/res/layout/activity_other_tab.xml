@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:text="@string/tryk_her" 
-            android:textStyle="bold"/>"
+            android:textStyle="bold" />"
         
         <TextView
             style="@style/small_header_style"
