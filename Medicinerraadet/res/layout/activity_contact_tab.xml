@@ -43,9 +43,9 @@
         android:id="@+id/text_body"
         android:layout_width="fill_parent"
         android:layout_height="250dp"
-        android:gravity="top" 
-        android:inputType="textMultiLine"
-        android:text="@string/skriv_besked"/>
+        android:gravity="top"
+        android:hint="@string/skriv_besked"
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/btnSubmit"
