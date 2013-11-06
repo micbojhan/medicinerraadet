@@ -9,10 +9,20 @@ package dk.itsmap.nissebanden.medicinerraadet;
 
 public final class R {
     public static final class array {
-        public static final int semester_array=0x7f060001;
-        public static final int subject_array=0x7f060000;
+        public static final int semester_array=0x7f070001;
+        public static final int subject_array=0x7f070000;
     }
     public static final class attr {
+    }
+    public static final class color {
+        public static final int air_force_blue=0x7f040000;
+        public static final int backgoundcolor=0x7f040003;
+        public static final int black=0x7f040002;
+        public static final int header_background=0x7f040004;
+        public static final int header_overall=0x7f040007;
+        public static final int mrblue=0x7f040005;
+        public static final int mrlblue=0x7f040006;
+        public static final int white=0x7f040001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -21,8 +31,8 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static final int activity_horizontal_margin=0x7f050000;
+        public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
@@ -32,12 +42,35 @@ public final class R {
         public static final int ic_tab_news_selected=0x7f020004;
         public static final int ic_tab_news_unselected=0x7f020005;
         public static final int ic_tab_other=0x7f020006;
+        public static final int lille_logo=0x7f020007;
+        public static final int logomedicinerraadet=0x7f020008;
+        public static final int overskrift=0x7f020009;
+        public static final int progressblue=0x7f02000a;
+        public static final int storlogo=0x7f02000b;
+        public static final int tab_calendar=0x7f02000c;
+        public static final int tab_calendar_sel=0x7f02000d;
+        public static final int tab_email=0x7f02000e;
+        public static final int tab_email_sel=0x7f02000f;
+        public static final int tab_new_sel=0x7f020010;
+        public static final int tab_news=0x7f020011;
+        public static final int tab_news_sel=0x7f020012;
+        public static final int tab_other=0x7f020013;
     }
     public static final class id {
-        public static final int action_settings=0x7f090003;
-        public static final int semester_spinner=0x7f090001;
-        public static final int subject_spinner=0x7f090000;
-        public static final int text_body=0x7f090002;
+        public static final int ScrollView1=0x7f0a000a;
+        public static final int action_settings=0x7f0a000d;
+        public static final int btnSubmit=0x7f0a0006;
+        public static final int progressBar_downloading_bar=0x7f0a000c;
+        public static final int se_udvalg=0x7f0a0009;
+        public static final int semester_spinner=0x7f0a0004;
+        public static final int subject_spinner=0x7f0a0003;
+        public static final int textView1=0x7f0a0002;
+        public static final int textViewCal=0x7f0a0000;
+        public static final int textViewNews=0x7f0a0007;
+        public static final int textView_downloading=0x7f0a000b;
+        public static final int text_body=0x7f0a0005;
+        public static final int webView_Calendar=0x7f0a0001;
+        public static final int webView_News=0x7f0a0008;
     }
     public static final class layout {
         public static final int activity_android_tab_layout=0x7f030000;
@@ -46,21 +79,51 @@ public final class R {
         public static final int activity_main=0x7f030003;
         public static final int activity_news_tab=0x7f030004;
         public static final int activity_other_tab=0x7f030005;
+        public static final int activity_other_tab_extra=0x7f030006;
+        public static final int activity_splash_download=0x7f030007;
     }
     public static final class menu {
-        public static final int android_tab_layout=0x7f080000;
-        public static final int main=0x7f080001;
-        public static final int news_tab=0x7f080002;
+        public static final int android_tab_layout=0x7f090000;
+        public static final int main=0x7f090001;
+        public static final int news_tab=0x7f090002;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int hello_world=0x7f050002;
-        public static final int title_activity_android_tab_layout=0x7f050003;
-        public static final int title_activity_calendar_tab=0x7f050007;
-        public static final int title_activity_contact_tab=0x7f050006;
-        public static final int title_activity_news_tab=0x7f050004;
-        public static final int title_activity_other_tab=0x7f050005;
+        public static final int aabningstider=0x7f06000b;
+        public static final int aabningstider_header=0x7f06000a;
+        public static final int aabningstider_into=0x7f06000c;
+        public static final int action_settings=0x7f060001;
+        public static final int adresse=0x7f06000e;
+        public static final int adresse_header=0x7f06000d;
+        public static final int app_name=0x7f060000;
+        public static final int fagligdagudvalget=0x7f060015;
+        public static final int fagligdagudvalget_header=0x7f060017;
+        public static final int hello_world=0x7f060002;
+        public static final int kontakt=0x7f060010;
+        public static final int kontakt_header=0x7f06000f;
+        public static final int kontakt_information=0x7f060023;
+        public static final int medicinerraadet_calheader=0x7f060020;
+        public static final int medicinerraadet_header=0x7f060009;
+        public static final int medicinerraadet_newsheader=0x7f06001f;
+        public static final int semensteransvarlige_header=0x7f060016;
+        public static final int semesteransvarlige=0x7f060019;
+        public static final int send=0x7f06001c;
+        public static final int skriv_besked=0x7f06001d;
+        public static final int splashdownload=0x7f06001e;
+        public static final int studenteraadsudvalget_header=0x7f06001b;
+        public static final int studenterraadsudvalget=0x7f060014;
+        public static final int title_activity_android_tab_layout=0x7f060003;
+        public static final int title_activity_calendar_tab=0x7f060006;
+        public static final int title_activity_contact_tab=0x7f060005;
+        public static final int title_activity_news_tab=0x7f060004;
+        public static final int tryk_her=0x7f060011;
+        public static final int uddannelsespolitisk=0x7f060013;
+        public static final int uddannelsespolitisk_header=0x7f06001a;
+        public static final int varmestueudvalget=0x7f060012;
+        public static final int varmestueudvalget_header=0x7f060018;
+        public static final int what_is_mr=0x7f060022;
+        public static final int what_is_mr_header=0x7f060021;
+        public static final int who_is_in_mr=0x7f060008;
+        public static final int who_is_in_mr_header=0x7f060007;
     }
     public static final class style {
         /** 
@@ -84,10 +147,13 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f080001;
+        /**  Headerstyle in about MR 
+         */
+        public static final int header_style=0x7f080002;
+        public static final int small_header_style=0x7f080003;
     }
 }

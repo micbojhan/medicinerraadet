@@ -116,7 +116,10 @@ public class NewsTabActivity extends Activity {
 			newdatestring = new String(stringArray);
 
 			// Finding image-content with jdom and moving it to the top to improve news appearance
-			
+			if(var.getContent().equals("<a href=\"\" id=\"\" title=\"\" target=\"\" onclick=\"\" style=\"\"></a><br />"))
+			{
+				var.setContent("Medicinerrådet Au oprettede en begivenhed på facebook, tryk på Læs mere");
+			}
 			String content = "<root>" + var.getContent() +"</root>";
 
 			try {

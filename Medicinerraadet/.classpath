@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry exported="true" kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/gson-2.2.3.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/gson-2.2.3-javadoc.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/gson-2.2.3-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Smartphone/projekt/medicinerraadet/Medicinerraadet/libs/jdom-1.1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="G:/adt-bundle-windows-x86_64-20131030/Medicinerraadet/libs/gson-2.2.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="G:/adt-bundle-windows-x86_64-20131030/Medicinerraadet/libs/gson-2.2.3-javadoc.jar"/>
+	<classpathentry exported="true" kind="lib" path="G:/adt-bundle-windows-x86_64-20131030/Medicinerraadet/libs/gson-2.2.3-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="G:/adt-bundle-windows-x86_64-20131030/Medicinerraadet/libs/jdom-1.1.3.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
