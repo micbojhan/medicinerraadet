@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import com.example.temaprojekt4.GoogleCalendar.GC_Entry;
 import com.example.temaprojekt4.GoogleCalendar.GC_GoogleCalendar;
@@ -86,72 +87,88 @@ public class CalendarTabActivity extends Activity {
 		String html_part = "</head><body>";
 
 		List<GC_Entry> entrylist = googleCalender.getFeed().getEntry();
-
-		for (GC_Entry entry : entrylist) {
-			String startTime, headerTime, endTime, tempText, shortStartTime;
-			headerTime = "";
-			tempText = "";
-			SimpleDateFormat formatter, FORMATTER, HeaderFormatter;
-
-			for (GD_When gd : entry.getGd_when()) {
+		String startTime, headerTime, preheaderTime = "", endTime, tempText;
+		SimpleDateFormat compareFormater = new SimpleDateFormat("dd");
+		SimpleDateFormat headerFormatter = new SimpleDateFormat("dd. MMMM yyyy");
+		SimpleDateFormat timeFormater = new SimpleDateFormat("HH:mm");
+		SimpleDateFormat googleFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
+		for (GC_Entry entry : entrylist) 
+		{
+			headerTime = startTime = endTime = tempText = "";
+			for (GD_When gd : entry.getGd_when()) 
+			{
 				startTime = gd.getStartTime();
 				endTime = gd.getEndTime();
-				if (startTime.length() > 10) {
-					shortStartTime = startTime.substring(0, 15);
-					endTime = endTime.substring(11, 16);
-					formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-					FORMATTER = new SimpleDateFormat(
-							"'D.' dd. MMMM yyyy 'kl.' HH:mm");
-					HeaderFormatter = new SimpleDateFormat("dd. MMMM yyyy");
-					try {
-						startTime = FORMATTER.format(formatter
-								.parse(shortStartTime));
-						headerTime = HeaderFormatter.format(formatter
-								.parse(shortStartTime));
-						tempText = startTime + "-" + endTime + "<br>";
-						// temp += FORMATTER.format(formatter.parse(startTime))+
-						// "-"+ endTime + " <br>";
-					} catch (ParseException e) {
-						e.printStackTrace();
+				if (startTime.length() == 10) 
+				{
+					startTime = startTime + "T00:00";
+					endTime = endTime + "T00:00";
+				}
+				else
+				{
+					startTime = startTime.substring(0, 16);
+					endTime = endTime.substring(0, 16);
+				}
+				try 
+				{
+					int _end = Integer.parseInt(compareFormater.format(googleFormatter.parse(endTime)));
+					int _sta = Integer.parseInt(compareFormater.format(googleFormatter.parse(startTime)));
+					if(_end-_sta == 0) // Same day
+					{
+						headerTime = headerFormatter.format(googleFormatter.parse(startTime));
+						startTime = timeFormater.format(googleFormatter.parse(startTime));
+						endTime = timeFormater.format(googleFormatter.parse(endTime));
+						tempText = "<b>Tidspunkt:</b> " + startTime + "-" + endTime;
 					}
-				} else {
-					formatter = new SimpleDateFormat("yyyy-MM-dd");
-					FORMATTER = new SimpleDateFormat("dd. MMMM yyyy");
-					try {
-						startTime = FORMATTER
-								.format(formatter.parse(startTime));
-						headerTime = startTime;
-						endTime = FORMATTER.format(formatter.parse(endTime));
-						tempText = "Hel-/flerdagsarrangement <br>" + "Fra "
-								+ startTime + " til " + endTime + "<br>";
-						// temp += "Fra "
-						// + FORMATTER.format(formatter.parse(startTime))
-						// + " til "
-						// + FORMATTER.format(formatter.parse(endTime))
-						// + "<br>";
-					} catch (ParseException e) {
-						e.printStackTrace();
+					else if(_end-_sta > 0) // More than one day..
+					{
+						headerTime = compareFormater.format(googleFormatter.parse(startTime)) + "-" + headerFormatter.format(googleFormatter.parse(endTime));
+						startTime = timeFormater.format(googleFormatter.parse(startTime));
+						endTime = timeFormater.format(googleFormatter.parse(endTime));
+						if(startTime.equals(endTime))
+						{
+							tempText = "<b>Tidspunkt:</b> Ikke sat (Hele dagen: " + startTime + "-" + endTime + ")";
+						}
+						else
+							tempText = "<b>Tidspunkt:</b> " + startTime + "-" + endTime;
 					}
+				} 
+				catch (ParseException e) 
+				{
+					e.printStackTrace();
 				}
 			}
-			String temp = "<div class=\"header\">" + "<table>" + "<tr>"
-					+ "<td>"
+			String temp = "";
+			if(headerTime.equals(preheaderTime))
+			{
+				temp += "<hr noshade><div class=\"content\">" + "<b>"
+						+ entry.getTitle().get$t() + "</b><br>" + tempText;
+			}
+			else
+			{
+			temp += "<div class=\"header\">" + "<table>" + "<tr>" + "<td>"
 					+ "<img class=\"logo\" src=\"logomedicinerraadet.jpg\" />"
-					+ "</td>" + "<td>" + "<div class=\"date\">" + headerTime
+					+ "</td>" + "<td>" + "<div class=\"date\">  " + headerTime
 					+ "</div>" + "</td>" + "</tr>" + "</table>" + "</div>"
 					+ "<div class=\"content\">" + "<b>"
 					+ entry.getTitle().get$t() + "</b><br>" + tempText;
-
+			}
 			for (GD_Where gd : entry.getGd_where()) {
 				if (!(gd.getValueString().length() == 0))
-					temp += "Hvor: " + gd.getValueString();
+					temp += "<br><b>Hvor:</b> " + gd.getValueString();
 			}
 			if (!(entry.getContent().get$t().length() == 0))
-				temp += "<br>Beskrivelse: " + entry.getContent().get$t();
+			{
+				if(entry.getContent().get$t().contains("http"))
+					temp += "<br><b>Beskrivelse:</b> " + "<a class=\"link\" href=\"" + entry.getContent().get$t() + "\">Læs mere</a>";
+				else
+				temp += "<br><b>Beskrivelse:</b> " + entry.getContent().get$t();
+			}
 
 			temp += "<br><br></div>";
 
 			html_part += temp;
+			preheaderTime = headerTime;
 		}
 
 		String html2 = "</body>" + "</html>";

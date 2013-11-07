@@ -63,8 +63,6 @@ public class SplashDownloadActivity extends Activity {
 		data_downloaded = load("object123");
 		if (data_downloaded == null) {
 			Log.e("BH_Log", "Der er ikke noget gammelt indhold");
-			Toast.makeText(this, "Henter indhold til appen", Toast.LENGTH_LONG)
-					.show();
 			startDownloadService();
 		} else {
 			Log.e("BH_Log",
