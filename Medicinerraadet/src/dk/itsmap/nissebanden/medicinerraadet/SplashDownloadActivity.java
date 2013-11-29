@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
@@ -34,12 +35,14 @@ public class SplashDownloadActivity extends Activity {
 	DownloadedData data_downloaded;
 	ProgressBar pb_h;
 	TextView text_download;
+	
 
 	// ProgressBar pb_spinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		// Hides the titlebar
 		// this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_splash_download);
@@ -72,7 +75,7 @@ public class SplashDownloadActivity extends Activity {
 					.getDownloadedDateTime().getTime());
 			Log.e("BH_Log", "indholdet er " + (double) diff / 60 / 60 / 1000
 					+ " timer gammel");
-			int timeGammel = 3; // 3 timer
+			int timeGammel = 0; // 3 timer
 			if (diff > timeGammel * 60 * 60 * 1000) {
 				Log.e("BH_Log",
 						"Indholdet er for gammelt, Downloader noget nyt");

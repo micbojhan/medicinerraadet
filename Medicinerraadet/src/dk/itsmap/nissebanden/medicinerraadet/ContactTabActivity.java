@@ -1,11 +1,17 @@
 package dk.itsmap.nissebanden.medicinerraadet;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.http.protocol.HTTP;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -52,8 +58,7 @@ public class ContactTabActivity extends Activity {
 		contextView = (TextView) findViewById(R.id.text_body);
 		btnSubmit = (Button) findViewById(R.id.btnSubmit);
 		spinner_subject = (Spinner) findViewById(R.id.subject_spinner);
-		spinner_subject
-				.setOnItemSelectedListener(new SubjectOnItemSelectedListener());
+		spinner_subject.setOnItemSelectedListener(new SubjectOnItemSelectedListener());
 		spinner_semester = (Spinner) findViewById(R.id.semester_spinner);
 		spinner_semester.setVisibility(View.INVISIBLE);
 		addItemsOnSpinnerSemester(semesterMails);
@@ -104,12 +109,13 @@ public class ContactTabActivity extends Activity {
 
 		List<String> list = new ArrayList<String>();
 		for (SemesterMail mail : result.getMails()) {
+			
 			list.add(mail.getNickName());
+			
 		}
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
-		dataAdapter
-				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner_semester.setAdapter(dataAdapter);
 	}
 
@@ -117,7 +123,7 @@ public class ContactTabActivity extends Activity {
 
 		List<String> list = new ArrayList<String>();
 		for (SubjectMail mail : result.getMails()) {
-			list.add(mail.getNickName());
+				list.add(mail.getNickName());
 		}
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);

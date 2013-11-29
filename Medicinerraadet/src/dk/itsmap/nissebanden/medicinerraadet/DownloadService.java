@@ -4,12 +4,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
 
 import android.app.Service;
 import android.content.Intent;
@@ -43,21 +47,22 @@ public class DownloadService extends Service {
 	}
 
 	public InputStream retrieveStream(String url) {
-		DefaultHttpClient client = new DefaultHttpClient();
-		HttpGet getRequest = new HttpGet(url);
+		HttpClient _defaultHttpClient = new DefaultHttpClient();
+		HttpGet _httpGet = new HttpGet(url);
 		try {
-			HttpResponse getResponse = client.execute(getRequest);
-			final int statusCode = getResponse.getStatusLine().getStatusCode();
-			if (statusCode != HttpStatus.SC_OK) {
-				Log.w(getClass().getSimpleName(), "Error " + statusCode
-						+ " for URL " + url);
+			HttpResponse _httpResponse = _defaultHttpClient.execute(_httpGet);
+			final int _statusCode = _httpResponse.getStatusLine().getStatusCode();
+			if (_statusCode != HttpStatus.SC_OK) {
+				Log.w(getClass().getSimpleName(), "Error " + _statusCode + " for URL " + url);
 				sendMessageToSpalshScreen_downloadError();
 				return null;
 			}
-			HttpEntity getResponseEntity = getResponse.getEntity();
-			return getResponseEntity.getContent();
+			HttpEntity _httpEntity = _httpResponse.getEntity();
+			
+				//Log.w("LkOL  ", EntityUtils.toString( _httpEntity, HTTP.UTF_8 ) + "\n\n\n");
+			return _httpEntity.getContent();
 		} catch (IOException e) {
-			getRequest.abort();
+			_httpGet.abort();
 			Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
 		}
 		sendMessageToSpalshScreen_downloadError();
@@ -132,10 +137,16 @@ public class DownloadService extends Service {
 			Gson gson = new Gson();
 			if (source == null)
 				return null;
-			Reader reader = new InputStreamReader(source);
-			GC_GoogleCalendar RawSTOG = gson.fromJson(reader,
-					GC_GoogleCalendar.class);
-			return RawSTOG;
+			Reader reader = null;
+			try {
+				reader = new InputStreamReader(source, HTTP.UTF_8);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (reader != null)
+			return gson.fromJson(reader,GC_GoogleCalendar.class);
+			return null;
 		}
 
 		@Override
@@ -168,9 +179,16 @@ public class DownloadService extends Service {
 			String url = f_url[0];
 			InputStream source = retrieveStream(url);
 			Gson gson = new Gson();
-			Reader reader = new InputStreamReader(source);
-			MedicinNews RawSTOG = gson.fromJson(reader, MedicinNews.class);
-			return RawSTOG;
+			Reader reader = null;
+			try {
+				reader = new InputStreamReader(source, HTTP.ISO_8859_1);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (reader != null)
+				return gson.fromJson(reader, MedicinNews.class);
+			return null;
 		}
 
 		@Override
@@ -198,9 +216,16 @@ public class DownloadService extends Service {
 			String url = f_url[0];
 			InputStream source = retrieveStream(url);
 			Gson gson = new Gson();
-			Reader reader = new InputStreamReader(source);
-			SubjectMails RawSTOG = gson.fromJson(reader, SubjectMails.class);
-			return RawSTOG;
+			Reader reader = null;
+			try {
+				reader = new InputStreamReader(source, HTTP.ISO_8859_1);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (reader != null)
+			return gson.fromJson(reader, SubjectMails.class);
+			return null;
 		}
 
 		@Override
@@ -228,9 +253,16 @@ public class DownloadService extends Service {
 			String url = f_url[0];
 			InputStream source = retrieveStream(url);
 			Gson gson = new Gson();
-			Reader reader = new InputStreamReader(source);
-			SemesterMails RawSTOG = gson.fromJson(reader, SemesterMails.class);
-			return RawSTOG;
+			Reader reader = null;
+			try {
+				reader = new InputStreamReader(source, HTTP.ISO_8859_1);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (reader != null)
+			return gson.fromJson(reader, SemesterMails.class);
+			return null;
 		}
 
 		@Override
