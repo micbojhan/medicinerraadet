@@ -10,87 +10,11 @@
             style="@style/header_style"
             android:text="@string/medicinerraadet_header" />
 
-	<ScrollView 
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
+    <WebView
+        android:id="@+id/webView_about"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-        
-        <TextView
-            style="@style/small_header_style"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/what_is_mr_header" />
-        
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/what_is_mr" />
-        
-        <TextView
-            android:id="@+id/se_udvalg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="@string/tryk_her" 
-            android:textStyle="bold" />"
-        
-        <TextView
-            style="@style/small_header_style"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="@string/who_is_in_mr_header" />
-        
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/who_is_in_mr" />
-        
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/aabningstider_header"
-            style="@style/small_header_style"/>
-        
-        <TextView 
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/aabningstider_into"/>
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/aabningstider"
-        	android:paddingLeft="@dimen/activity_horizontal_margin"/>
-        
-        <TextView
-            style="@style/small_header_style"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="@string/adresse_header" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/adresse" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/kontakt"
-            android:textStyle="bold"
-            android:paddingBottom="15dp"/>
-
-		</LinearLayout>
+        android:layout_height="match_parent" />
 		
-	</ScrollView>
   </LinearLayout>
 
 

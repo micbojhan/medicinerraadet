@@ -6,7 +6,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
+//import android.util.Log;
 import android.webkit.WebView;
 //import android.widget.Toast;
 
@@ -26,14 +26,10 @@ public class CalendarTabActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calendar_tab);
 		myWebView = (WebView) findViewById(R.id.webView_Calendar);
-		Log.e("hej", myWebView + "");
 		DownloadedData tis;
 		tis = (DownloadedData) getParent().getIntent().getSerializableExtra(
 				"dataforTabs");
-
 		googleCalender = tis.getGoogleCalender();
-		Log.e("BH_log", "DownloadedData: " + tis + " - googleCalender: "
-				+ googleCalender);
 	}
 
 	@Override

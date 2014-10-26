@@ -65,23 +65,22 @@ public class SplashDownloadActivity extends Activity {
 
 		data_downloaded = load("object123");
 		if (data_downloaded == null) {
-			Log.e("BH_Log", "Der er ikke noget gammelt indhold");
+			Log.d("BH! LOG:", "Der er ikke noget gammelt indhold");
 			startDownloadService();
 		} else {
-			Log.e("BH_Log",
-					"Der er gammelt indhold tjekker datoen på indholdet");
+			Log.d("BH! LOG:", "Der er gammelt indhold tjekker datoen på indholdet");
 			Date currentDateTime = new Date();
 			long diff = (currentDateTime.getTime() - data_downloaded
 					.getDownloadedDateTime().getTime());
-			Log.e("BH_Log", "indholdet er " + (double) diff / 60 / 60 / 1000
+			Log.d("BH! LOG:", "indholdet er " + (double) diff / 60 / 60 / 1000
 					+ " timer gammel");
 			int timeGammel = 0; // 3 timer
 			if (diff > timeGammel * 60 * 60 * 1000) {
-				Log.e("BH_Log",
+				Log.d("BH! LOG:",
 						"Indholdet er for gammelt, Downloader noget nyt");
 				startDownloadService();
 			} else {
-				Log.e("BH_Log", "Indholdet er i en passende alder");
+				Log.d("BH! LOG:", "Indholdet er i en passende alder");
 				switchScreen();
 			}
 		}
@@ -107,7 +106,7 @@ public class SplashDownloadActivity extends Activity {
 			LocalBinder binder = (LocalBinder) service;
 			downloadService = binder.getService();
 			mBound = true;
-			Log.e("BH_Log", "Service: KLAR");
+			Log.d("BH! LOG:", "Service: KLAR");
 			startService();
 		}
 
@@ -142,9 +141,9 @@ public class SplashDownloadActivity extends Activity {
 	public void startService() {
 		if (mBound) {
 			downloadService.startDownloadGoogleCalendarData();
-			Log.e("BH_Log", "StartDownload: YES");
+			Log.d("BH! LOG:", "StartDownload: YES");
 		} else
-			Log.e("BH_Log", "StartDownload: NO");
+			Log.d("BH! LOG:", "StartDownload: NO");
 	}
 
 	/*
@@ -185,13 +184,13 @@ public class SplashDownloadActivity extends Activity {
 
 	public synchronized boolean save(String fileName, DownloadedData objToSave) {
 		try {
-			Log.e("BH_Log", "SaveLoadObject: Saving object");
+			Log.d("BH! LOG:", "SaveLoadObject: Saving object");
 			// save to file
 			File file = new File(getApplicationContext().getDir("filesdir",
 					Context.MODE_PRIVATE)
 					+ "/file.file");
 			if (file.exists()) {
-				Log.e("BH_Log",
+				Log.d("BH! LOG:",
 						"SaveLoadObject: Object allready excist, delete old object");
 				file.delete();
 			}
@@ -216,12 +215,12 @@ public class SplashDownloadActivity extends Activity {
 
 	public synchronized DownloadedData load(String fileName) {
 		try {
-			Log.e("BH_Log", "SaveLoadObject: Loading object");
+			Log.d("BH! LOG:", "SaveLoadObject: Loading object");
 			File file = new File(getApplicationContext().getDir("filesdir",
 					Context.MODE_PRIVATE)
 					+ "/file.file");
 			if (!file.exists()) {
-				Log.e("BH_Log", "SaveLoadObject: Object do not excist... Fail");
+				Log.d("BH! LOG:", "SaveLoadObject: Object do not excist... Fail");
 				return null;
 			}
 
@@ -263,9 +262,9 @@ public class SplashDownloadActivity extends Activity {
 				boolean result = save("object123", data_downloaded);
 
 				if (result)
-					Log.e("BH_Log", "Saved object");
+					Log.d("BH! LOG:", "Saved object");
 				else
-					Log.e("BH_Log", "Error saving object");
+					Log.d("BH! LOG:", "Error saving object");
 				switchScreen();
 			}
 		}
@@ -274,13 +273,13 @@ public class SplashDownloadActivity extends Activity {
 	private BroadcastReceiver br_Error = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			Log.e("BH_Log", "Der kunne ikke downloades nyt indhold");
+			Log.d("BH! LOG:", "Der kunne ikke downloades nyt indhold");
 			if (data_downloaded != null) {
-				Log.e("BH_Log", "Bruger det gamle indhold til appen");
+				Log.d("BH! LOG:", "Bruger det gamle indhold til appen");
 				toast1();
 				switchScreen();
 			} else {
-				Log.e("BH_Log", "Der er intet indhold til appen");
+				Log.d("BH! LOG:", "Der er intet indhold til appen");
 				// pb_spinner.setVisibility(View.INVISIBLE);
 				text_download
 						.setText("Kunne ikke hente indhold \n tjek internetadgang");

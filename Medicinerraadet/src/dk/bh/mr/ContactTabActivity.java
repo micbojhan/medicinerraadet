@@ -2,7 +2,6 @@ package dk.bh.mr;
 
 //import java.io.UnsupportedEncodingException;
 //import java.net.URLDecoder;
-import java.util.ArrayList;
 import java.util.List;
 
 //import org.apache.http.protocol.HTTP;
@@ -27,7 +26,6 @@ import android.widget.Toast;
 import dk.bh.mr.dlobj.DownloadedData;
 import dk.bh.mr.json.contactmr.ContactMedicinerRaadet;
 import dk.bh.mr.json.contactmr.Emails;
-import dk.bh.mr.json.googlecalendar.GC_Entry;
 
 
 public class ContactTabActivity extends Activity {

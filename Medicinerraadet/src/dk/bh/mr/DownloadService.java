@@ -55,8 +55,7 @@ public class DownloadService extends Service {
 			final int _statusCode = _httpResponse.getStatusLine()
 					.getStatusCode();
 			if (_statusCode != HttpStatus.SC_OK) {
-				Log.w(getClass().getSimpleName(), "Error " + _statusCode
-						+ " for URL " + url);
+				Log.w("BH! LOG:" + getClass().getSimpleName(), "Error " + _statusCode + " for URL " + url);
 				sendMessageToSpalshScreen_downloadError();
 				return null;
 			}
@@ -67,7 +66,7 @@ public class DownloadService extends Service {
 			return _httpEntity.getContent();
 		} catch (IOException e) {
 			_httpGet.abort();
-			Log.w(getClass().getSimpleName(), "Error for URL " + url, e);
+			Log.w("BH! LOG:" + getClass().getSimpleName(), "Error for URL " + url, e);
 		}
 		sendMessageToSpalshScreen_downloadError();
 		return null;
@@ -141,7 +140,7 @@ public class DownloadService extends Service {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			sendMessageToSpalshScreen_proces(0, "Henter kalenderindhold");
-			Log.e("AsyncTask: ", "onPreExecute: GC_GoogleCalendar");
+			//Log.e("AsyncTask: ", "onPreExecute: GC_GoogleCalendar");
 		}
 
 		@Override
@@ -167,7 +166,7 @@ public class DownloadService extends Service {
 		protected void onPostExecute(GoogleCalendar result) {
 			super.onPostExecute(result);
 			if (result != null) {
-				Log.e("AsyncTask: ", "onPostExecute: GC_GoogleCalendar");
+				//Log.e("AsyncTask: ", "onPostExecute: GC_GoogleCalendar");
 				downloadedData.setGoogleCalende(result);
 				// dismissProgressBar();
 				startDownloadMedicinNews();
@@ -184,7 +183,7 @@ public class DownloadService extends Service {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			Log.e("HER_AsyncTask: ", "onPreExecute");
+			//Log.e("HER_AsyncTask: ", "onPreExecute");
 			sendMessageToSpalshScreen_proces(1, "Henter nyheder");
 		}
 
@@ -210,7 +209,7 @@ public class DownloadService extends Service {
 			super.onPostExecute(result);
 			downloadedData.setMedicinNews(result);
 			sendMessageToSpalshScreen_proces(2, "Nyheder hentet");
-			Log.e("HER_AsyncTask: ", "onPostExecute");
+			//Log.e("HER_AsyncTask: ", "onPostExecute");
 			startDownload_JsonOmMR();
 		}
 	}
@@ -268,7 +267,7 @@ public class DownloadService extends Service {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			Log.e("HER_AsyncTask: ", "onPreExecute");
+			//Log.e("HER_AsyncTask: ", "onPreExecute");
 			sendMessageToSpalshScreen_proces(3, "Henter kontaktoplysninger");
 		}
 
@@ -294,7 +293,7 @@ public class DownloadService extends Service {
 			super.onPostExecute(result);
 			downloadedData.setContactMedicinerRaadet(result);
 			sendMessageToSpalshScreen_proces(4, "Kontaktoplysninger hentet");
-			Log.e("HER_AsyncTask: ", "onPostExecute");
+			//Log.e("HER_AsyncTask: ", "onPostExecute");
 			
 			sendMessageToSpalshScreen_AllDone();
 			
@@ -307,7 +306,7 @@ public class DownloadService extends Service {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			Log.e("HER_AsyncTask: ", "onPreExecute");
+			//Log.e("HER_AsyncTask: ", "onPreExecute");
 			sendMessageToSpalshScreen_proces(2, "Henter Om-data");
 		}
 
@@ -333,7 +332,7 @@ public class DownloadService extends Service {
 			super.onPostExecute(result);
 			downloadedData.setMedicinInfo(result);
 			sendMessageToSpalshScreen_proces(3, "Om-data hentet");
-			Log.e("HER_AsyncTask: ", "onPostExecute");
+			//Log.e("HER_AsyncTask: ", "onPostExecute");
 			startDownload_JsonContactMails();
 
 			

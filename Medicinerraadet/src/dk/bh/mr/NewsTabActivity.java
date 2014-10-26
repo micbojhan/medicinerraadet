@@ -26,7 +26,8 @@ import dk.bh.mr.json.facebookfeed.FacebookFeed;
 public class NewsTabActivity extends Activity {
 	WebView myWebView;
 	FacebookFeed newsMedicin;
-
+	String html;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -105,6 +106,7 @@ public class NewsTabActivity extends Activity {
 				".link:visited {" + "color: #FFFFFF;" + "}" +
 
 				"</style>";
+		
 		final String TD_FORMAT_FULL_PATTERN_PLUS = "yyyy-MM-dd'T'HH:mm:ssZZ";
 		
 		String stringBuilder = "</head><body>";
@@ -112,7 +114,7 @@ public class NewsTabActivity extends Activity {
 		SimpleDateFormat dateFormat = new SimpleDateFormat(
 				TD_FORMAT_FULL_PATTERN_PLUS);
 
-		Log.d("MHN_Log", "Building HTML");
+		//Log.d("MHN_Log", "Building HTML");
 		for (Entries var : eList) {
 			Date date = null;
 			// Date timeSpan = null;
@@ -175,6 +177,7 @@ public class NewsTabActivity extends Activity {
 			content = content.replace("<root>", "");
 			content = content.replace("</root>", "");
 						
+			
 						
 			stringBuilder = stringBuilder
 					+ "<div class=\"header\">" 
@@ -190,10 +193,20 @@ public class NewsTabActivity extends Activity {
 		}
 		stringBuilder = stringBuilder + "</body></html>";
 		
-		Log.d("MHN_Log", "Loading HTML to WebView");
-
-		myWebView.loadDataWithBaseURL("file:///android_res/drawable/", head + css + stringBuilder, "text/html", "utf-8", null);
+		//Log.d("MHN_Log", "Loading HTML to WebView");
+		
+		
+		html = head + css  +stringBuilder;
+		
+		myWebView.loadDataWithBaseURL("file:///android_res/drawable/", html, "text/html", "utf-8", null);
 
 	}
 
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		
+		
+	}
 }

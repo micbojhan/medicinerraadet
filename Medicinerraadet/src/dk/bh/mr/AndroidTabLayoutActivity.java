@@ -61,7 +61,7 @@ public class AndroidTabLayoutActivity extends TabActivity {
 				.setContent(intent);
 		tabHost.addTab(spec);
 
-		tabHost.setCurrentTab(1);
+		tabHost.setCurrentTab(2);
 
 	}
 

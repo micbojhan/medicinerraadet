@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package dk.itsmap.nissebanden.medicinerraadet;
+package dk.bh.mr;
 
 public final class R {
     public static final class array {
@@ -57,20 +57,21 @@ public final class R {
         public static final int tab_other=0x7f020013;
     }
     public static final class id {
-        public static final int ScrollView1=0x7f0a000a;
-        public static final int action_settings=0x7f0a000d;
+        public static final int ScrollView1=0x7f0a000b;
+        public static final int action_settings=0x7f0a000e;
         public static final int btnSubmit=0x7f0a0006;
-        public static final int progressBar_downloading_bar=0x7f0a000c;
-        public static final int se_udvalg=0x7f0a0009;
-        public static final int semester_spinner=0x7f0a0004;
-        public static final int subject_spinner=0x7f0a0003;
+        public static final int contextTekstFelt=0x7f0a0003;
+        public static final int progressBar_downloading_bar=0x7f0a000d;
+        public static final int semester_spinner=0x7f0a0005;
+        public static final int subject_spinner=0x7f0a0004;
         public static final int textView1=0x7f0a0002;
         public static final int textViewCal=0x7f0a0000;
-        public static final int textViewNews=0x7f0a0007;
-        public static final int textView_downloading=0x7f0a000b;
-        public static final int text_body=0x7f0a0005;
+        public static final int textViewNews=0x7f0a0008;
+        public static final int textView_downloading=0x7f0a000c;
+        public static final int text_body=0x7f0a0007;
         public static final int webView_Calendar=0x7f0a0001;
-        public static final int webView_News=0x7f0a0008;
+        public static final int webView_News=0x7f0a0009;
+        public static final int webView_about=0x7f0a000a;
     }
     public static final class layout {
         public static final int activity_android_tab_layout=0x7f030000;
